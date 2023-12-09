@@ -1,0 +1,74 @@
+
+button:focus {
+    box-shadow: none;
+}
+
+/***************************
+***PRIMARY BUTTON STYLES***
+****************************/
+.primary {
+    background: var(--clr-primary);
+    color: var(--clr-white);
+    border: 1px solid var(--clr-primary);
+}
+.primary:hover {
+    background: var(--clr-primary2);
+    backdrop-filter: blur(8px);
+    border: 1px solid var(--clr-primary2);
+}
+/***************************
+***PRIMARY DARK STYLES***
+****************************/
+.primary_dark {
+    background: var(--clr-dark);
+    color: var(--clr-white);
+    border: 1px solid var(--clr-dark);
+}
+.primary:hover {
+    background: var(--clr-primary2);
+    backdrop-filter: blur(8px);
+    border: 1px solid var(--clr-primary2);
+}
+
+/***************************
+***SECONDARY BUTTON STYLES***
+****************************/
+.secondary {
+    background: transparent;
+    color: var(--clr-dark);
+    border: 1px solid var(--clr-dark);
+}
+.secondary:hover {
+    background: var(--clr-dark);
+    border: 1px solid var(--clr-dark);
+    color: var(--clr-white);
+    backdrop-filter: blur(8px);
+}
+
+
+/***************************
+***BORDERLESS BUTTON STYLES***
+****************************/
+.borderless {
+    background: none;
+    color: var(--clr-dark);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.5rem;
+}
+.borderless:hover {
+    color: var(--clr-primary);
+    backdrop-filter: blur(8px);
+}
+/**SIZE VARIANTS*/
+
+.btn_small {
+    padding: 5px 25px;
+    height: 30px;
+}
+
+.btn_default {
+    padding: 5px 50px;
+    height: 40px;
+}

@@ -1,0 +1,18 @@
+.container {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 5rem;
+    padding: 1.2rem;
+    margin-top: 1rem;
+}
+.category_title_bar {
+    background: var(--clr-dark);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 1.5rem 1rem;
+    border-bottom: 0.004px solid var(--clr-grey);
+    color: var(--clr-white);
+}

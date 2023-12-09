@@ -1,0 +1,35 @@
+.container {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 3rem;
+    padding: 0 2rem 1rem;
+    background: var(--clr-dark);
+    width: 100%;
+}
+.hr_line {
+    height: 0.2rem;
+    width: 20%;
+    background-color: var(--clr-primary);
+    border: none;
+    margin: 0 auto;
+}
+
+.footer_text p {
+    line-height: var(--txt-line-height);
+    color: var(--clr-grey);
+}
+
+.copyright {
+    color: var(--clr-grey);
+    font-size: 1rem;
+    font-weight: 500;
+}
+.social_media {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 1rem;
+    margin-bottom: 1rem;
+}
