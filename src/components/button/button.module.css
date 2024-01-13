@@ -1,4 +1,6 @@
-
+* {
+    box-sizing: border-box;
+}
 button:focus {
     box-shadow: none;
 }
@@ -9,40 +11,25 @@ button:focus {
 .primary {
     background: var(--clr-primary);
     color: var(--clr-white);
-    border: 1px solid var(--clr-primary);
+    border: none;
 }
 .primary:hover {
-    background: var(--clr-primary2);
-    backdrop-filter: blur(8px);
-    border: 1px solid var(--clr-primary2);
+    background: var(--clr-secondary);
 }
-/***************************
-***PRIMARY DARK STYLES***
-****************************/
-.primary_dark {
-    background: var(--clr-dark);
-    color: var(--clr-white);
-    border: 1px solid var(--clr-dark);
-}
-.primary:hover {
-    background: var(--clr-primary2);
-    backdrop-filter: blur(8px);
-    border: 1px solid var(--clr-primary2);
-}
+
 
 /***************************
 ***SECONDARY BUTTON STYLES***
 ****************************/
 .secondary {
     background: transparent;
-    color: var(--clr-dark);
-    border: 1px solid var(--clr-dark);
+    color: var(--clr-black);
+    border: 1px solid var(--clr-black);
 }
 .secondary:hover {
-    background: var(--clr-dark);
-    border: 1px solid var(--clr-dark);
+    background: var(--clr-black);
+    border: 1px solid var(--clr-black);
     color: var(--clr-white);
-    backdrop-filter: blur(8px);
 }
 
 
@@ -51,24 +38,26 @@ button:focus {
 ****************************/
 .borderless {
     background: none;
-    color: var(--clr-dark);
+    color: var(--clr-black);
     display: flex;
     align-items: center;
     justify-content: center;
     gap: 0.5rem;
+    border: none;
 }
 .borderless:hover {
     color: var(--clr-primary);
-    backdrop-filter: blur(8px);
+
 }
 /**SIZE VARIANTS*/
 
-.btn_small {
+.small_size {
     padding: 5px 25px;
     height: 30px;
 }
 
-.btn_default {
-    padding: 5px 50px;
-    height: 40px;
+.default_size {
+    width: 160px;
+    height: 48px;
+    padding: 0.5rem 1rem;
 }

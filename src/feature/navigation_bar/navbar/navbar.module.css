@@ -27,3 +27,8 @@
     text-decoration: none;
     color: var(--clr-light);
 }
+
+.cart_wrapper {
+    position: relative;
+}
+

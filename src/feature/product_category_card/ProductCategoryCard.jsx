@@ -1,13 +1,13 @@
 /* eslint-disable react/prop-types */
 //import React from 'react'
-import Button from '../button/Button'
+import Button from '../../components/button/Button'
 import styles from './product_category_card.module.css';
 import CardImageHeadphone from '../../../resources/assets/no-background/headphone.png';
-import { useNavigate } from 'react-router-dom';
+import { useNavigate, Link } from 'react-router-dom';
 
 
 
-const ProductCategoryCard = ({title ="HEADPHONES", cardImage = CardImageHeadphone}) => {
+const ProductCategoryCard = ({title ="HEADPHONES", cardImage = CardImageHeadphone, onClick}) => {
   const navigate = useNavigate();
 
   /**
@@ -16,9 +16,10 @@ const ProductCategoryCard = ({title ="HEADPHONES", cardImage = CardImageHeadphon
    * uses the title prop to navigate to the correct category page.
    * @returns void
    */
-  const handleClick = () => {
-    navigate(`/categories/${title.toLowerCase()}`);
-  }
+  // const handleClick = () => {
+  //   navigate(`/categories/${title.toLowerCase()}`);
+  // }
+  
 
   return (
     <div className={styles.container}>
@@ -26,7 +27,10 @@ const ProductCategoryCard = ({title ="HEADPHONES", cardImage = CardImageHeadphon
             <img src={cardImage} alt='item' className={styles.card_image}/>
         </div>
       <p>{title}</p>
-      <Button label="SHOP" variant="borderless" icon={true} onClick={handleClick} />
+      <Link to="">
+       <Button label="SHOP" variant="borderless" icon={true} onClick={onClick}/> 
+      </Link>
+      
     </div>
   )
 }

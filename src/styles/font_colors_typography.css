@@ -1,0 +1,155 @@
+
+
+
+/**FONT IMPORT: DEFAULT FONT: MANROPE*/
+@import url("https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;700&display=swap");
+
+:root {
+  /****Primary colors ***/
+  --clr-primary: #D87D4A;
+  --clr-secondary: #FBAF85;
+  --clr-accent: #101010;
+
+
+  /* Neutral colors */
+  --clr-white: #ffffff;
+  --clr-grey: #F1F1F1;
+  --clr-light: #FAFAFA;
+  --clr-black: #000000;
+  --clr-dark: #2b3945;
+
+
+  /* Feedback colors */
+  --clr-success: #...;
+  --clr-warning: #ff5252;
+  --clr-warning: #ce1c1c;
+  --clr-info: #ffa25b;
+
+  /* Font sizes */
+  --fs-small: 0.8rem;
+  --fs-medium: 1rem;
+  --fs-large: 2rem;
+
+  --fs-h1: 3.5rem; /* 56px */
+  --fs-h2: 2.5rem; /* 4046px */
+  --fs-h3: 2rem; /* 32px */
+  --fs-h4: 1.75rem; /* 28px */
+  --fs-h5: 1.5rem; /* 24px */
+  --fs-h6: 1.125rem; /* 18px */
+  --fs-p: 1rem; /* 16px */
+  --fs-overline: 0.875rem; /* 14px */
+  --fs-subtitle: 0.8125rem; /* 13px */
+  --fs-small: 0.8rem; /* 2.7px */
+  --fs-smaller: 0.783rem; /* 1.8px */
+  --fs-smallest: 0.692rem; /* 1.2px */
+
+  /* Font families */
+  --ff-primary: 'Manrope', sans-serif;
+
+
+  /*****************************
+  ******   Measurements ********
+  ******************************/
+  --border-radius: 0.53rem; /* 8px */
+  --border-shadow: 0 0.2rem 0.5rem rgba(0, 0, 0, 0.2); /* 0 3px 6px rgba(0, 0, 0, 0.16) */
+  --border-shadow2: 0 0.2rem 0.5rem rgba(0, 0, 0, 0.2); /* 0 3px 6px rgba(0, 0, 0, 0.16) */
+  --border-shadow3: 0 0.2rem 0.5rem rgba(0, 0, 0, 0.2); /* 0 3px 6px rgba(0, 0, 0, 0.16) */
+}
+
+.h1 {
+  font-size: var(--fs-h1);
+  line-height: 58px;
+  letter-spacing: 2px;
+  font-weight: bold;
+}
+.h2 {
+  font-size: var(--fs-h2);
+  line-height: 44px;
+  letter-spacing: 1.5px;
+  font-weight: bold;
+}
+.h3 {
+  font-size: var(--fs-h3);
+  line-height: 36px;
+  letter-spacing: 1.15px;
+  font-weight: bold;
+}
+.h4 {
+  font-size: var(--fs-h4);
+  line-height: 38px;
+  letter-spacing: 2px;
+  font-weight: bold;
+}
+.h5 {
+  font-size: var(--fs-h5);
+  line-height: 33px;
+  letter-spacing: 1.7px;
+  font-weight: bold;
+}
+.h6 {
+  font-size: var(--fs-h6);
+  line-height: 24px;
+  letter-spacing: 1.3px;
+  font-weight: bold;
+}
+.overline {
+  font-size: var(--fs-overline);
+  line-height: 19px;
+  letter-spacing: 1.0px;
+  font-weight: bold;
+}
+
+.subtitle {
+  font-size: var(--fs-subtitle);
+  line-height: 25px;
+  letter-spacing: 1px;
+  font-weight: bold;
+}
+
+.small {
+  font-size: var(--fs-small);
+  line-height: 22px;
+  letter-spacing: 1px;
+  font-weight: bold;
+}
+.smaller {
+  font-size: var(--fs-smaller);
+  line-height: 19px;
+  letter-spacing: 1px;
+  font-weight: bold;
+}
+.smallest {
+  font-size: var(--fs-smallest);
+  line-height: 17px;
+  letter-spacing: 1px;
+  font-weight: bold;
+}
+
+ /* ----------*/
+  /* Colors     */
+  /* ---------- */
+  .bg-dark {
+    background-color: hsl(var(--clr-dark));
+  }
+  
+  .bg-accent {
+    background-color: hsl(var(--clr-light));
+  }
+  
+  .bg-white {
+    background-color: hsl(var(--clr-white));
+  }
+  
+  .text-dark {
+    color: hsl(var(--clr-dark));
+  }
+  
+  .text-accent {
+    color: hsl(var(--clr-accent));
+  }
+  .text-primary {
+    color: hsl(var(--clr-primary));
+  }
+  .text-white {
+    color: hsl(var(--clr-white));
+  }

@@ -27,14 +27,26 @@
     z-index: 2;
     position: relative;
 }
-.new_tag {
+/********************************
+*** NEW TAG STYLES
+***               ***
+*********************************/
+.newtag {
     font-weight: 400;
     line-height: normal;
     letter-spacing: 0.5rem;
-    color: var(--clr-grey);
 }
+.new_tag_default {
+    color: var(--clr-primary);
+}
+.new_tag_secondary {
+    color: var(--clr-grey)
+}
+/*************
+*** Product Title ****
+********/
 .title {    
-    color: var(--clr-light);
+    color: var(--clr-white);
     margin-bottom: 0.1rem;
     text-align: center;
     line-height: 1.1;
@@ -42,22 +54,17 @@
 .title_sec {    
     color: var(--clr-dark);
     margin-bottom: 0.1rem;
-    text-align: center;
+    /* text-align: center; */
     line-height: 1.1;
 }
 .description{    
-    color: var(--clr-grey1);
+    color: var(--clr-light);
     margin-bottom: 2rem;
 }
 .new_tag, .title, .description {
     text-align: center;
 }
-.new_tag_default {
-    color: var(--clr-primary)
-}
-.new_tag_sec {
-    color: var(--clr-grey)
-}
+
 .product_image_container {
     background-size: cover;
     background-position: center;

@@ -3,11 +3,12 @@
 import { useState } from "react";
 import Button from "../button/Button";
 import styles from "./product_detailed_features.module.css";
+import { useCart } from '../hooks/useCart';
 import gallaryImage from "../../assets/product_assets/shared/mobile/image-best-gear.jpg";
-import { ProductDescription } from "../product_description/ProductDescription";
+import { ProductDescription } from "../../feature/product_description/ProductDescription";
 import { getCategoryImages, getCategoryTitles } from "../../utils/reuseableFnc";
 import data from "../../assets/data/data.json";
-import ProductCategoryCard from "../product_category_card/ProductCategoryCard";
+import ProductCategoryCard from "../../feature/product_category_card/ProductCategoryCard";
 import RootLayout from "../../layouts/RootLayout";
 import { useParams } from "react-router-dom";
 
@@ -17,20 +18,20 @@ export const PriceTag = ({ price }) => (
   </div>
 );
 
-export const CartCounter = () => {
-  const [count, setCount] = useState(0);
+export const CartCounter = ({Pquantity, increment, decrement}) => {
+
   return (
     <div className={styles.cart_counter}>
       <button
         className={styles.button_minus}
-        onClick={() => count > 0 && setCount(count - 1)}
+        onClick={decrement}
       >
         -
       </button>
-      <p>{count}</p>
+      <p>{Pquantity}</p>
       <button
         className={styles.button_plus}
-        onClick={() => setCount(count + 1)}
+        onClick={increment}
       >
         +
       </button>
@@ -63,27 +64,39 @@ export const Gallery = ({ productGallary }) => {
   return (
     <div className={styles.gallary_container}>
       {galleryImages.map((image, index) => (
-        <img src={image.mobile} style={{borderRadius: "8px",}} alt="product gallery" key={index} />
+        <img
+          src={image.mobile}
+          style={{ borderRadius: "8px" }}
+          alt="product gallery"
+          key={index}
+        />
       ))}
     </div>
   );
 };
 
 const ProductDetailedFeatures = ({
+  addToCart,
   price,
   featureText,
   boxContent,
   productGallary,
+ Pquantity,
+ increment,
+ decrement,
+
 }) => {
+  
 
-
+ // const {addToCart, error} = useContext(CartContext);
   return (
     <div className={styles.container}>
       <div>
         <PriceTag price={price} />
         <div className={styles.cartCount_and_button_wrap}>
-          <CartCounter />
-          <Button label="ADD TO CART" variant="primary" />
+          <CartCounter Pquantity={Pquantity} increment={increment} decrement={decrement}/>
+         
+          <Button label="ADD TO CART" variant="primary" onClick={addToCart} />
         </div>
       </div>
 
@@ -91,7 +104,7 @@ const ProductDetailedFeatures = ({
 
       <BoxListItems boxContent={boxContent} />
       <Gallery productGallary={productGallary} />
-     
+      
     </div>
   );
 };

@@ -1,15 +1,21 @@
 //import React from 'react'
 
-import { ProductDescription } from "../../components/product_description/ProductDescription";
+import { ProductDescription } from "../../feature/product_description/ProductDescription";
 import ProductDetailedFeatures from "../../components/product_detailed_features/ProductDetailedFeatures";
 import RootLayout from "../../layouts/RootLayout";
-import { getCategoryImages, getCategoryTitles, getProductData } from "../../utils/reuseableFnc";
-import ProductCategoryCard from "../../components/product_category_card/ProductCategoryCard";
+import {
+  getCategoryImages,
+  getCategoryTitles,
+  getProductData,
+} from "../../utils/reuseableFnc";
+import ProductCategoryCard from "../../feature/product_category_card/ProductCategoryCard";
 import BringingYou from "../../components/bringing_you_the_best/BringingYou";
 import { useParams } from "react-router-dom";
-import { useState, useEffect } from "react";
+import { useState, useEffect, useCallback } from "react";
 import styles from "./product_detail_page.module.css";
 import smoothscroll from "smoothscroll-polyfill";
+//costom hook
+import { useCart } from "../../components/hooks/useCart";
 
 const ProductDetailPage = () => {
   const [productDetails, setProductDetails] = useState(null);
@@ -17,7 +23,13 @@ const ProductDetailPage = () => {
   const categoryImages = getCategoryImages();
   const categoryTitle = getCategoryTitles(getProductData());
   const { productSlug } = useParams();
+  const [productCartQuantity, setProductQuantity] = useState(0);  
+  
  
+
+
+
+
 
   const decodedProductSlugUrl = decodeURIComponent(productSlug).toLowerCase();
   // console.log("decoded productSlug after: ", decodedProductSlugUrl);
@@ -27,34 +39,60 @@ const ProductDetailPage = () => {
   //   console.log(false)
   // }
 
-  
-  
-
   useEffect(() => {
     // reset productDetails state
     setProductDetails(null);
     setIsLoading(true);
-    console.log("product slug in data: ", getProductData().map((item) => item.slug.toLowerCase()));
-    const fetchedProductDetails = getProductData()
-    .find((item) => {
+    console.log(
+      "product slug in data: ",
+      getProductData().map((item) => item.slug.toLowerCase())
+    );
+    const fetchedProductDetails = getProductData().find((item) => {
       const isMatch = item.slug.toLowerCase() === decodedProductSlugUrl;
-      console.log("Testing slug:", item.slug, "decoded url:", decodedProductSlugUrl, "Result:", isMatch);
+      // console.log("Testing slug:", item.slug, "decoded url:", decodedProductSlugUrl, "Result:", isMatch);
       return isMatch;
     });
     // scrolls page to top when component mounts
     smoothscroll.polyfill();
     window.scroll({ top: 0, left: 0, behavior: "smooth" });
-   
+
     if (fetchedProductDetails) {
       setProductDetails(fetchedProductDetails);
     }
-  
+
     setIsLoading(false);
 
-   
     // console.log("product details useEFfect:", fetchedProductDetails);
     // console.log("decoded productSlug from useEffect: ", decodedProductSlugUrl)
   }, [decodedProductSlugUrl, productDetails, productSlug]);
+
+  // useEffect(() => {
+  //   if (productToAdd) {
+  //     addToCart(productToAdd);
+  //   }
+  // },[productToAdd, addToCart])
+
+// const handleCartIncrement = useCallback (() => {
+//   setProductQuantity(prevQuantity=> prevQuantity+ 1);
+// },[]);
+
+// const handleCartDecrement = useCallback (() => {
+//   setProductQuantity(prevQuantity => prevQuantity - 1);
+// }, []);
+const { addToCart } = useCart();
+
+  const handleAddToCart = () => {
+    addToCart(productDetails, productCartQuantity );
+    console.log('product Quantity from product detail page: ', productCartQuantity)
+  }
+
+  const handleIncrement = () => {
+    setProductQuantity((prevQuantity) => prevQuantity + 1);
+  }
+
+  const handleDecrement = () => {
+    setProductQuantity((prevQuantity) => prevQuantity > 0 ? prevQuantity - 1 : 0);
+  }
 
   if (isLoading) {
     return (
@@ -64,8 +102,6 @@ const ProductDetailPage = () => {
     );
   }
   if (!productDetails) return <div>product not found</div>;
-
-
 
   const updatedGallery = Object.entries(productDetails.gallery).reduce(
     (acc, [key, value]) => {
@@ -106,14 +142,28 @@ const ProductDetailPage = () => {
             boxContent={productDetails.includes}
             productGallary={updatedGallery}
             key={productDetails.productSlug}
+           addToCart={handleAddToCart}
+          Pquantity={productCartQuantity}
+          increment={handleIncrement}
+          decrement={handleDecrement}
           />
           <h4 className={styles.category_title}>YOU MAY ALSO LIKE</h4>
           {productDetails.others.map((product) => {
-          const updatedImage = product.image.mobile.replace("./assets", "/src/assets/product_assets/")
-          return (
-            <>
-              <ProductDescription variant="C" productTitle={product.name} itemImage={updatedImage} titleColorDefault={false} productSlug={product.slug} key={product.id}/>
-            </>
+            const updatedImage = product.image.mobile.replace(
+              "./assets",
+              "/src/assets/product_assets/"
+            );
+            return (
+              <>
+                <ProductDescription
+                  variant="C"
+                  productTitle={product.name}
+                  itemImage={updatedImage}
+                  titleColorDefault={false}
+                  productSlug={product.slug}
+                  key={product.id}
+                />
+              </>
             );
           })}
 

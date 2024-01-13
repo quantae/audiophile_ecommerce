@@ -1,6 +1,6 @@
 /* eslint-disable react/prop-types */
 //import React from 'react'
-import { Logo, NavList } from "../navbar/Navbar";
+import { Logo, NavList } from "../../feature/navigation_bar/navbar/Navbar";
 import styles from "./footer.module.css";
 import FB from '../../assets/icons/facebook.svg?react';
 import IG from '../../assets/icons/instagram.svg?react';

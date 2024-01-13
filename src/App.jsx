@@ -1,14 +1,22 @@
 import { createBrowserRouter, RouterProvider } from "react-router-dom";
 import Home from "./pages/home/Home";
-import "./styles/font_colors.css";
+import "./styles/font_colors_typography.css";
 import "./styles/global.css";
-import ProductCategoryPage from "./pages/product_category/ProductCategoryPage";
+import ProductCategoryPage from "./pages/product_detail/ProductDetailPage";
 import ProductDetailPage from "./pages/product_detail/ProductDetailPage";
+
+
+import TestButton from "./feature/TestButton/TestButton";
 
 const router = createBrowserRouter([
   {
     path: "/",
-    element: <Home />,
+    element: (
+      <>
+        <Home />
+        <TestButton/>
+      </>
+    ),
   },
   {
     path: "/categories/:category",
@@ -16,6 +24,7 @@ const router = createBrowserRouter([
   },
   {
     path: "/product/:productSlug",
+
     element: <ProductDetailPage />,
   },
 ]);

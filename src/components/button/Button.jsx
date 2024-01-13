@@ -1,6 +1,6 @@
 /* eslint-disable react/prop-types */
 import styles from "./button.module.css";
-import  ForwardIcon from '../../assets/icons/forwardArrow.svg?react';
+import ForwardIcon from "../../assets/icons/forwardArrow.svg?react";
 
 /**
  * Button is a reusable component that renders a button element.
@@ -12,49 +12,42 @@ import  ForwardIcon from '../../assets/icons/forwardArrow.svg?react';
  * - size: The size of the button, can be "small" or any other value (defaults to "default").
  */
 
-const Button = ({ 
-    label= 'SEE PRODUCT', 
-    onClick, 
-    variant = "primary", 
-    className, 
-    size = "defaultSize",
-    icon
-     }) => {
+const Button = ({
+  label = "SEE PRODUCT",
+  onClick,
+  variant = "primary",
+  className,
+  icon=false,
+  size = "default",
+  onSubmit
+}) => {
+  
 
-        const handleConlick = () => {
+  // defines the class names for the button variants.
+  const variantClassNames = {
+    primary: styles.primary,
+    secondary: styles.secondary,
+    borderless: styles.borderless,
+  };
 
-        // only call the onClick prop if it is provided. 
-        if (onClick) {
-        onClick();
-      }
-        };
+  const sizeClassNames = {
+    default: styles.default_size,
+    small: styles.small_size,
+  };
 
-        
-        const variantClassNames = {
-            primary: styles.primary,
-            primaryDark: styles.primary_dark,
-            secondary: styles.secondary,
-            borderless: styles.borderless,
-        };
+  // defines variant and size variables to be used in the button element.
+  const variantType = variantClassNames[variant];
+  const sizeType = sizeClassNames[size];
 
-        const sizeClassNames = {
-            defaultSize: styles.default_size,
-            small: styles.small_size,
-        };
-
-        const variantType =variantClassNames[variant];
-        const sizeType = sizeClassNames[size];
-
-
-    return (
-        <button
-            className={`${variantType} ${sizeType} ${className}`}
-            onClick={onClick}
-        >
-            {label}
-            {icon && <ForwardIcon/>}
-        </button>
-    );
+  return (
+    <button
+      className={`${variantType} ${sizeType} ${className}`}
+      onClick={onClick} onSubmit={onSubmit} 
+    >
+      {label}
+      {icon && <ForwardIcon />}
+    </button>
+  );
 };
 
 export default Button;

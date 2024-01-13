@@ -2,7 +2,7 @@
 
 import BringingYou from "../../components/bringing_you_the_best/BringingYou";
 import ProductCategoryCard from "../../components/product_category_card/ProductCategoryCard";
-import { ProductDescription } from "../../components/product_description/ProductDescription";
+import { ProductDescription } from "../../feature/product_description/ProductDescription";
 import RootLayout from "../../layouts/RootLayout";
 import styles from "./product_category_page.module.css";
 import { useParams } from "react-router-dom";
@@ -15,11 +15,13 @@ import {
   getProductData,
 } from "../../utils/reuseableFnc";
 import smoothscroll from "smoothscroll-polyfill";
+import { useNavigate } from "react-router-dom";
 
 const ProductCategoryPage = () => {
   const { category } = useParams();
   const categoryImages = getCategoryImages();
   const categoryTitle = getCategoryTitles(data);
+  const navigate = useNavigate();
 
   /**
    * This useEffect Scrolls the window to the top of the
@@ -30,6 +32,10 @@ const ProductCategoryPage = () => {
     window.scroll({ top: 0, left: 0, behavior: "smooth" });
   }, [categoryTitle]);
 
+  const handdleCategoryCardClick = (productSlug) => {
+    navigate(`/product/${productSlug.toLowerCase()}`); 
+    console.log("clicked SEE PRODUCT on, ", productSlug);
+  }
   /**
    * We Filter the data to get the category that matches the url parameter
    */
@@ -58,6 +64,7 @@ const ProductCategoryPage = () => {
               showNewTag={product.new}
               titleColorDefault={false} 
               productSlug={product.slug}
+              onClick={() => handdleCategoryCardClick(product.slug)}
             />
           ))}
           {categoryTitle.map((category, index) => (
