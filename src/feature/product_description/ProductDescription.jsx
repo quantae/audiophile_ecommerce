@@ -81,9 +81,9 @@ export const VariantB = ({
   productTitle,
   productDescription,
   buttonVariant,
-  newTagText,
+  newTagVariant,
   itemImage,
-  newTagDefault,
+  newTagText,
   showButton,
   onClick,
   productSlug,
@@ -96,9 +96,9 @@ export const VariantB = ({
 
     <div className={styles.text_container}>
       <NewTag
-        newTagText={newTagText}
+        newTagVariant={newTagVariant}
         showNewTag={showNewTag}
-        newTagDefault={newTagDefault}
+      newTagText={newTagText}
       />
       <ProductTitle
         title={productTitle}

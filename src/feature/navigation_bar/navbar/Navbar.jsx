@@ -10,10 +10,10 @@ import styles from "./navbar.module.css";
 import LogoSVG from "../../../assets/icons/logo.svg?react"
 import Cart from "../../../assets/icons/cart.svg?react"
 import Hamburger from "../../../assets/icons/hamburger.svg?react"
-import { CartCount } from "../cartIcon/CartCount";
+import { GlobalCartCountIcon } from "../cart/GlobalCartCountIcon";
 
 // reducer imports
-import { selectCartCount } from "../cartIcon/cartSlice";
+import { selectCartCount } from "../cart/cartSlice";
 
 
 
@@ -65,7 +65,7 @@ const Navbar = ({ onClick, count }) => {
       <Logo />
       <div className={styles.cart_wrapper}>
         <Cart onClick={onClick} />
-        <CartCount count={cartCount}/>
+        <GlobalCartCountIcon count={cartCount}/>
       </div>
     </div>
   );

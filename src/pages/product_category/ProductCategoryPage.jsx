@@ -1,7 +1,7 @@
 //import React from 'react'
 
 import BringingYou from "../../components/bringing_you_the_best/BringingYou";
-import ProductCategoryCard from "../../components/product_category_card/ProductCategoryCard";
+import ProductCategoryCard from "../../feature/product_category_card/ProductCategoryCard";
 import { ProductDescription } from "../../feature/product_description/ProductDescription";
 import RootLayout from "../../layouts/RootLayout";
 import styles from "./product_category_page.module.css";
@@ -72,6 +72,7 @@ const ProductCategoryPage = () => {
               title={category}
               key={index}
               cardImage={categoryImages[category]}
+              onClick={() => navigate(`/categories/${category.toLowerCase()}`)}
             />
           ))}
 

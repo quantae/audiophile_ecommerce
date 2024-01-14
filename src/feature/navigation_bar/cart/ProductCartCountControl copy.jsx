@@ -1,10 +1,10 @@
 /* eslint-disable react/prop-types */
 //import React from 'react'
 
-import Button from "../button/Button";
-import styles from "./cart.module.css";
+import Button from "../../../components/button/Button";
+import styles from "./product_cart_count_control.module.css";
 
-import { CartCounter, PriceTag } from "../product_detailed_features/ProductDetailedFeatures";
+import { CartCounter, PriceTag } from "../../../components/product_detailed_features/ProductDetailedFeatures";
 
 function CartItemCount({count}) {
   return (

@@ -58,7 +58,7 @@
     line-height: 1.1;
 }
 .description{    
-    color: var(--clr-light);
+    color: var(--clr-dark);
     margin-bottom: 2rem;
 }
 .new_tag, .title, .description {

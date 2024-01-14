@@ -1,0 +1,28 @@
+.container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 2rem;
+}
+.count_wrapper {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 1rem;
+    background-color: var(--clr-grey);
+}
+.button_minus, .button_plus {
+    background-color: var(--clr-grey);
+    border: none;
+    outline: none;
+    cursor: pointer;
+    padding: 0.75rem 1rem;
+  color: var(--clr-grey2);
+  &:hover{
+    color: var(--clr-secondary);
+  }
+  &:active{
+    color: var(--clr-dark);
+  }
+}
+

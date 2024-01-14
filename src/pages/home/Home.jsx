@@ -7,6 +7,7 @@ import BringingYou from "../../components/bringing_you_the_best/BringingYou";
 import data from "../../assets/data/data.json";
 import { getCategoryTitles, getCategoryImages } from "../../utils/reuseableFnc";
 import { ProductDescription } from "../../feature/product_description/ProductDescription";
+import { useNavigate } from "react-router-dom";
 import ImageItem from '../../assets/product_assets/home/mobile/image-speaker-zx9.png';
 
 /**
@@ -14,6 +15,7 @@ import ImageItem from '../../assets/product_assets/home/mobile/image-speaker-zx9
  * @returns ProductDescription component with variant A
  */
 const HeroArea = () => {
+  const navigate = useNavigate();
   const heroProductToShow = data.find((item) => item.slug === "xx99-mark-two-headphones");
   return (
     <div className={styles.hero}>
@@ -24,7 +26,7 @@ const HeroArea = () => {
       productTitle={heroProductToShow.name}
       productDescription={heroProductToShow.description}
       buttonVariant="primary"
-      onClick={() => console.log("hero see product clicked to be changed later")}
+      onClick={() => navigate (`/product/${heroProductToShow.slug}`)}
       />
     </div>
   );
@@ -38,6 +40,8 @@ const Home = () => {
   const featureProductB = data.find((item) => item.slug === "zx7-speaker");
   const featureProductC = data.find((item) => item.slug === "yx1-earphones");
 
+  const navigate = useNavigate();
+
   console.log("category title: ", categoryTitle);
   return (
     <div>
@@ -49,7 +53,8 @@ const Home = () => {
               title={category}
               key={index}
               cardImage={categoryImages[category]}
-              onClick={() => console.log("product category Shop button clicked: category", category)}
+              // onClick={() => console.log("product category Shop button clicked: category", category)}
+              onClick={() => navigate(`categories/${category.toLowerCase()}`)}
             />
           ))}
 

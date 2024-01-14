@@ -10,8 +10,8 @@ import {
 } from "../../utils/reuseableFnc";
 import ProductCategoryCard from "../../feature/product_category_card/ProductCategoryCard";
 import BringingYou from "../../components/bringing_you_the_best/BringingYou";
-import { useParams } from "react-router-dom";
-import { useState, useEffect, useCallback } from "react";
+import { useParams, useNavigate } from "react-router-dom";
+import { useState, useEffect} from "react";
 import styles from "./product_detail_page.module.css";
 import smoothscroll from "smoothscroll-polyfill";
 //costom hook
@@ -23,13 +23,8 @@ const ProductDetailPage = () => {
   const categoryImages = getCategoryImages();
   const categoryTitle = getCategoryTitles(getProductData());
   const { productSlug } = useParams();
-  const [productCartQuantity, setProductQuantity] = useState(0);  
-  
+  const navigate = useNavigate();
  
-
-
-
-
 
   const decodedProductSlugUrl = decodeURIComponent(productSlug).toLowerCase();
   // console.log("decoded productSlug after: ", decodedProductSlugUrl);
@@ -59,40 +54,32 @@ const ProductDetailPage = () => {
     if (fetchedProductDetails) {
       setProductDetails(fetchedProductDetails);
     }
-
     setIsLoading(false);
 
     // console.log("product details useEFfect:", fetchedProductDetails);
     // console.log("decoded productSlug from useEffect: ", decodedProductSlugUrl)
   }, [decodedProductSlugUrl, productDetails, productSlug]);
 
-  // useEffect(() => {
-  //   if (productToAdd) {
-  //     addToCart(productToAdd);
-  //   }
-  // },[productToAdd, addToCart])
 
-// const handleCartIncrement = useCallback (() => {
-//   setProductQuantity(prevQuantity=> prevQuantity+ 1);
-// },[]);
+  // const { addToCart } = useCart();
 
-// const handleCartDecrement = useCallback (() => {
-//   setProductQuantity(prevQuantity => prevQuantity - 1);
-// }, []);
-const { addToCart } = useCart();
+  // const handleAddToCart = () => {
+  //   addToCart(productDetails, productCartQuantity);
+  //   console.log(
+  //     "product Quantity from product detail page: ",
+  //     productCartQuantity
+  //   );
+  // };
 
-  const handleAddToCart = () => {
-    addToCart(productDetails, productCartQuantity );
-    console.log('product Quantity from product detail page: ', productCartQuantity)
-  }
+  // const handleIncrement = () => {
+  //   setProductQuantity((prevQuantity) => prevQuantity + 1);
+  // };
 
-  const handleIncrement = () => {
-    setProductQuantity((prevQuantity) => prevQuantity + 1);
-  }
-
-  const handleDecrement = () => {
-    setProductQuantity((prevQuantity) => prevQuantity > 0 ? prevQuantity - 1 : 0);
-  }
+  // const handleDecrement = () => {
+  //   setProductQuantity((prevQuantity) =>
+  //     prevQuantity > 0 ? prevQuantity - 1 : 0
+  //   );
+  // };
 
   if (isLoading) {
     return (
@@ -125,10 +112,10 @@ const { addToCart } = useCart();
             variant="B"
             key={productDetails.productSlug}
             showButton={false}
-            showNewTag={false}
+            showNewTag={productDetails.new}
+            newTagVariant="primary"
             productTitle={productDetails.name}
             productDescription={productDetails.description}
-            newTag={productDetails.new}
             slug={productDetails.slug}
             itemImage={productDetails.categoryImage.mobile.replace(
               "./assets",
@@ -142,10 +129,7 @@ const { addToCart } = useCart();
             boxContent={productDetails.includes}
             productGallary={updatedGallery}
             key={productDetails.productSlug}
-           addToCart={handleAddToCart}
-          Pquantity={productCartQuantity}
-          increment={handleIncrement}
-          decrement={handleDecrement}
+            item={productDetails}
           />
           <h4 className={styles.category_title}>YOU MAY ALSO LIKE</h4>
           {productDetails.others.map((product) => {
@@ -162,6 +146,9 @@ const { addToCart } = useCart();
                   titleColorDefault={false}
                   productSlug={product.slug}
                   key={product.id}
+                  onClick={() => {
+                    navigate(`/product/${product.slug}`);
+                  }}
                 />
               </>
             );
@@ -172,6 +159,7 @@ const { addToCart } = useCart();
               title={category}
               key={index}
               cardImage={categoryImages[category]}
+              onClick={() => navigate(`/categories/${category.toLowerCase()}`)}
             />
           ))}
           <BringingYou />

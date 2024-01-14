@@ -1,12 +1,15 @@
 //import React from 'react'
 
-import Cart from "../../components/cart/Cart";
+import {GlobalCartCountIcon } from "../../feature/navigation_bar/cart/GlobalCartCountIcon";
 import RootLayout from "../../layouts/RootLayout";
 
 const CartPage = () => {
   return (
     <div>
-      <Cart />
+      <RootLayout>
+      <GlobalCartCountIcon />
+      </RootLayout>
+      
     </div>
   );
 };

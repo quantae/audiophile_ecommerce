@@ -3,7 +3,7 @@
 import { useState } from "react";
 import Button from "../button/Button";
 import styles from "./product_detailed_features.module.css";
-import { useCart } from '../hooks/useCart';
+import { useCart } from "../hooks/useCart";
 import gallaryImage from "../../assets/product_assets/shared/mobile/image-best-gear.jpg";
 import { ProductDescription } from "../../feature/product_description/ProductDescription";
 import { getCategoryImages, getCategoryTitles } from "../../utils/reuseableFnc";
@@ -11,18 +11,18 @@ import data from "../../assets/data/data.json";
 import ProductCategoryCard from "../../feature/product_category_card/ProductCategoryCard";
 import RootLayout from "../../layouts/RootLayout";
 import { useParams } from "react-router-dom";
+import ProductCartCountControl from "../../feature/navigation_bar/cart/ProductCartCountControl";
 
 export const PriceTag = ({ price }) => (
   <div className={styles.pricetag}>
-    <h6>$ {price}</h6>
+    <h2>$ {price}</h2>
   </div>
 );
 
-export const CartCounter = ({Pquantity, increment, decrement}) => {
-
+export const CartCounter = ({ Pquantity, increment, decrement }) => {
   return (
     <div className={styles.cart_counter}>
-      <button
+      {/* <button
         className={styles.button_minus}
         onClick={decrement}
       >
@@ -34,7 +34,7 @@ export const CartCounter = ({Pquantity, increment, decrement}) => {
         onClick={increment}
       >
         +
-      </button>
+      </button> */}
     </div>
   );
 };
@@ -76,27 +76,20 @@ export const Gallery = ({ productGallary }) => {
 };
 
 const ProductDetailedFeatures = ({
-  addToCart,
   price,
   featureText,
   boxContent,
   productGallary,
- Pquantity,
- increment,
- decrement,
 
+  item,
 }) => {
-  
-
- // const {addToCart, error} = useContext(CartContext);
+  // const {addToCart, error} = useContext(CartContext);
   return (
     <div className={styles.container}>
       <div>
         <PriceTag price={price} />
         <div className={styles.cartCount_and_button_wrap}>
-          <CartCounter Pquantity={Pquantity} increment={increment} decrement={decrement}/>
-         
-          <Button label="ADD TO CART" variant="primary" onClick={addToCart} />
+          <ProductCartCountControl item={item} />
         </div>
       </div>
 
@@ -104,7 +97,6 @@ const ProductDetailedFeatures = ({
 
       <BoxListItems boxContent={boxContent} />
       <Gallery productGallary={productGallary} />
-      
     </div>
   );
 };
