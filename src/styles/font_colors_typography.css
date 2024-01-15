@@ -1,24 +1,19 @@
-
-
-
 /**FONT IMPORT: DEFAULT FONT: MANROPE*/
 @import url("https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;700&display=swap");
 
 :root {
   /****Primary colors ***/
-  --clr-primary: #D87D4A;
-  --clr-secondary: #FBAF85;
+  --clr-primary: #d87d4a;
+  --clr-secondary: #fbaf85;
   --clr-accent: #101010;
-
 
   /* Neutral colors */
   --clr-white: #ffffff;
-  --clr-grey: #F1F1F1;
+  --clr-grey: #f1f1f1;
   --clr-grey2: #b2b2b2;
-  --clr-light: #FAFAFA;
+  --clr-light: #fafafa;
   --clr-black: #000000;
   --clr-dark: #2b3945;
-
 
   /* Feedback colors */
   --clr-success: #...;
@@ -45,8 +40,7 @@
   --fs-smallest: 0.692rem; /* 1.2px */
 
   /* Font families */
-  --ff-primary: 'Manrope', sans-serif;
-
+  --ff-primary: "Manrope", sans-serif;
 
   /*****************************
   ******   Measurements ********
@@ -96,7 +90,7 @@
 .overline {
   font-size: var(--fs-overline);
   line-height: 19px;
-  letter-spacing: 1.0px;
+  letter-spacing: 1px;
   font-weight: bold;
 }
 
@@ -126,31 +120,31 @@
   font-weight: bold;
 }
 
- /* ----------*/
-  /* Colors     */
-  /* ---------- */
-  .bg-dark {
-    background-color: hsl(var(--clr-dark));
-  }
-  
-  .bg-accent {
-    background-color: hsl(var(--clr-light));
-  }
-  
-  .bg-white {
-    background-color: hsl(var(--clr-white));
-  }
-  
-  .text-dark {
-    color: hsl(var(--clr-dark));
-  }
-  
-  .text-accent {
-    color: hsl(var(--clr-accent));
-  }
-  .text-primary {
-    color: hsl(var(--clr-primary));
-  }
-  .text-white {
-    color: hsl(var(--clr-white));
-  }
+/* ----------*/
+/* Colors     */
+/* ---------- */
+.bg-dark {
+  background-color: hsl(var(--clr-dark));
+}
+
+.bg-accent {
+  background-color: hsl(var(--clr-light));
+}
+
+.bg-white {
+  background-color: hsl(var(--clr-white));
+}
+
+.text-dark {
+  color: hsl(var(--clr-dark));
+}
+
+.text-accent {
+  color: hsl(var(--clr-accent));
+}
+.text-primary {
+  color: hsl(var(--clr-primary));
+}
+.text-white {
+  color: hsl(var(--clr-white));
+}

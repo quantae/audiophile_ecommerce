@@ -6,20 +6,20 @@ const initialState = {
     cartCount: 0,
     cartTotal:0,
     cartItems: [
-        {
-            id: 100,
-            name: "item1",
-            slug:"item1",
-            price: 10.00,
-            quantity: 1,
-        },
-        {
-            id: 200,
-            name: "item2",
-            slug:"item2",
-            price: 20.00,
-            quantity: 1,
-        }
+        // {
+        //     id: 100,
+        //     name: "item1",
+        //     slug:"item1",
+        //     price: 10.00,
+        //     quantity: 1,
+        // },
+        // {
+        //     id: 200,
+        //     name: "item2",
+        //     slug:"item2",
+        //     price: 20.00,
+        //     quantity: 2,
+        // }
     ],
 }
 // create reducer
@@ -43,6 +43,11 @@ const cartSlice = createSlice({
                 }
 
             }
+        },
+        removeAllFromCart(state,) {
+            state.cartItems = [];
+            state.cartCount = 0;
+            state.cartTotal = 0;
         }
     }
 })
@@ -65,7 +70,7 @@ export const selectCartTotal = (state) => {
 export const selectCartItems = (state) => state.cart.cartItems;
 
 // export the action reducers
-export const { addToCart } = cartSlice.actions;
+export const { addToCart, removeAllFromCart } = cartSlice.actions;
 
 // export actions to store
 export default cartSlice.reducer;

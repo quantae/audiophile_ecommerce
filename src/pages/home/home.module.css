@@ -9,35 +9,7 @@
     height: 90vh;
     padding-top: 50%;
 }
-/* .hero_text_container {
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    gap: 0.5rem;
-    padding: 30% 2rem;
 
-}
-.hero_title {
-    font-weight: 400;
-    line-height: normal;
-    letter-spacing: 0.5rem;
-    color: var(--clr-grey);
-}
-.hero_body{    
-    color: var(--clr-light);
-    margin-bottom: 0.1rem;
-    text-align: center;
-}
-
-.hero_description{    
-    color: var(--clr-grey);
-    margin-bottom: 2rem;
-}
-
-.hero_title, .hero_body, .hero_description {
-    text-align: center;
-} */
 
 /***************************
 *** PRODUCT CATEGORY STYLES***
@@ -50,5 +22,24 @@
     gap: 5rem;
     padding: 1rem;
     margin: 7rem 0 4rem;
+    @media (min-width: 670px) {
+        flex-direction: row;
+       
+        justify-content: space-between;
+        gap: 2rem;
+    }
 }
 
+.product_feature_container {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 5rem;
+    padding: 1rem;
+    margin: 7rem 0 4rem;
+  
+}
+/***************************
+*** MEDIA SCREENS***
+****************************/

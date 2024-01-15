@@ -5,6 +5,9 @@
     justify-content: space-between;
     padding: 1.5rem 1rem;
     border-bottom: 0.004px solid var(--clr-grey);
+    position: sticky;
+    z-index: 100;
+    top: 0;
 }
 
 .nav_list {
@@ -25,7 +28,7 @@
 }
 .nav_list li .a {
     text-decoration: none;
-    color: var(--clr-light);
+    color: var(--clr-white);
 }
 
 .cart_wrapper {

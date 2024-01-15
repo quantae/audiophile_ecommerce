@@ -1,20 +1,37 @@
 /* eslint-disable react/prop-types */
+
+// Import dependencies
+import { useNavigate } from "react-router-dom";
+import smoothscroll from "smoothscroll-polyfill"; 
+import { useEffect } from "react";
+
+// Import components
 import styles from "./home.module.css";
 import RootLayout from "../../layouts/RootLayout";
 import ProductCategoryCard from "../../feature/product_category_card/ProductCategoryCard";
 import FeatureProduct from "../../components/home_feature_product/FeatureProductA";
 import BringingYou from "../../components/bringing_you_the_best/BringingYou";
+import { ProductDescription } from "../../feature/product_description/ProductDescription";
+
+
+// variable imports
 import data from "../../assets/data/data.json";
 import { getCategoryTitles, getCategoryImages } from "../../utils/reuseableFnc";
-import { ProductDescription } from "../../feature/product_description/ProductDescription";
-import { useNavigate } from "react-router-dom";
-import ImageItem from '../../assets/product_assets/home/mobile/image-speaker-zx9.png';
+
+
 
 /**
  * Displays the content of the hero area.
- * @returns ProductDescription component with variant A
+ * ProductDescription component with variant A
  */
 const HeroArea = () => {
+
+useEffect(() => {
+   // scrolls page to top when component mounts
+   smoothscroll.polyfill();
+   window.scroll({ top: 0, left: 0, behavior: "smooth" });
+}, []);
+
   const navigate = useNavigate();
   const heroProductToShow = data.find((item) => item.slug === "xx99-mark-two-headphones");
   return (
@@ -26,6 +43,7 @@ const HeroArea = () => {
       productTitle={heroProductToShow.name}
       productDescription={heroProductToShow.description}
       buttonVariant="primary"
+      descriptionColor={true}
       onClick={() => navigate (`/product/${heroProductToShow.slug}`)}
       />
     </div>
@@ -42,11 +60,13 @@ const Home = () => {
 
   const navigate = useNavigate();
 
-  console.log("category title: ", categoryTitle);
+ // console.log("category title: ", categoryTitle);
   return (
     <div>
       <RootLayout>
         <HeroArea />
+
+        {/* Product categories component */}
         <div className={styles.product_categories_container}>
           {categoryTitle.map((category, index) => (
             <ProductCategoryCard
@@ -57,24 +77,27 @@ const Home = () => {
               onClick={() => navigate(`categories/${category.toLowerCase()}`)}
             />
           ))}
-
+</div>
+<div className={styles.product_feature_container}>
+{/**Featured products */}
           <FeatureProduct 
           variant="A" 
           productTitle={featureProductA.name}
           productDescription={featureProductA.description}
           itemImage={featureProductA.image.desktop.replace("./assets/product-zx9-speaker/desktop/image-product.jpg", "/src/assets/product_assets/home/mobile/image-speaker-zx9.png")}
-          onClick={() => console.log( `product/${featureProductA.slug}`)} />
+          onClick={() => navigate( `product/${featureProductA.slug}`)} />
           {/* ../../../resources/assets/home/mobile/image-speaker-zx7.jpg*/}
+          
           <FeatureProduct 
           variant="B" 
           title={featureProductB.name}
-          onClick={() => (console.log(`product/${featureProductB.slug}`))}
+          onClick={() => (navigate(`product/${featureProductB.slug}`))}
           
           />
           <FeatureProduct 
           variant="C" 
           title={featureProductC.name}
-          onClick={() => (console.log(`product/${featureProductC.slug}`))}
+          onClick={() => (navigate(`product/${featureProductC.slug}`))}
           />
           <BringingYou />
         </div>

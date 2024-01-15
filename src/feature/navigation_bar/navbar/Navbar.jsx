@@ -12,8 +12,9 @@ import Cart from "../../../assets/icons/cart.svg?react"
 import Hamburger from "../../../assets/icons/hamburger.svg?react"
 import { GlobalCartCountIcon } from "../cart/GlobalCartCountIcon";
 
-// reducer imports
+// reducer/ component imports
 import { selectCartCount } from "../cart/cartSlice";
+
 
 
 
@@ -35,17 +36,17 @@ export const NavList = () => {
         </Link>
       </li>
       <li>
-        <Link to="/headphones" className={styles.a}>
+        <Link to="/categories/headphones" className={styles.a}>
           HEADPHONES
         </Link>
       </li>
       <li>
-        <Link to="/speakers" className={styles.a}>
+        <Link to="/categories/speakers" className={styles.a}>
           SPEAKERS
         </Link>
       </li>
       <li>
-        <Link to="/earphones" className={styles.a}>
+        <Link to="/categories/earphones" className={styles.a}>
           EARPHONES
         </Link>
       </li>
@@ -54,18 +55,18 @@ export const NavList = () => {
 };
 
 // eslint-disable-next-line no-unused-vars
-const Navbar = ({ onClick, count }) => {
+const Navbar = ({ onClick, openMenu}) => {
  const cartCount = useSelector(selectCartCount);
 
   return (
     <div className={styles.navbar}>
-      <Link to="/">
-        <Hamburger />
-      </Link>
+      
+        <Hamburger onClick={openMenu}/>
+    
       <Logo />
-      <div className={styles.cart_wrapper}>
-        <Cart onClick={onClick} />
-        <GlobalCartCountIcon count={cartCount}/>
+      <div className={styles.cart_wrapper} onClick={onClick} >
+        <Cart  />
+        <GlobalCartCountIcon count={cartCount} />
       </div>
     </div>
   );

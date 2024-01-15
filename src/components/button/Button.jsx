@@ -1,3 +1,4 @@
+/* eslint-disable react/no-unknown-property */
 /* eslint-disable react/prop-types */
 import styles from "./button.module.css";
 import ForwardIcon from "../../assets/icons/forwardArrow.svg?react";
@@ -17,12 +18,11 @@ const Button = ({
   onClick,
   variant = "primary",
   className,
-  icon=false,
+  icon = false,
   size = "default",
-  onSubmit
-}) => {
-  
+  onSubmit,
 
+}) => {
   // defines the class names for the button variants.
   const variantClassNames = {
     primary: styles.primary,
@@ -40,13 +40,18 @@ const Button = ({
   const sizeType = sizeClassNames[size];
 
   return (
-    <button
-      className={`${variantType} ${sizeType} ${className}`}
-      onClick={onClick} onSubmit={onSubmit} 
-    >
-      {label}
-      {icon && <ForwardIcon />}
-    </button>
+    <>
+      <button
+        className={`${variantType} ${sizeType} ${className}`}
+        onClick={onClick}
+        onSubmit={onSubmit}
+      
+      >
+        {label}
+        <span className={styles.button_icon}></span>
+        {icon && <ForwardIcon />}
+      </button>
+    </>
   );
 };
 

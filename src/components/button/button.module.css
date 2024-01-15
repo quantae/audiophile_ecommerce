@@ -4,6 +4,14 @@
 button:focus {
     box-shadow: none;
 }
+.default_size {
+    width: 160px;
+    height: 48px;
+    padding: 0.5rem 1rem;
+}
+.button_icon {
+    margin-right: 0.5rem;
+}
 
 /***************************
 ***PRIMARY BUTTON STYLES***
@@ -42,8 +50,9 @@ button:focus {
     display: flex;
     align-items: center;
     justify-content: center;
-    gap: 0.5rem;
+    gap: 0.5rem 0;
     border: none;
+    width: fit-content;
 }
 .borderless:hover {
     color: var(--clr-primary);
@@ -56,8 +65,3 @@ button:focus {
     height: 30px;
 }
 
-.default_size {
-    width: 160px;
-    height: 48px;
-    padding: 0.5rem 1rem;
-}

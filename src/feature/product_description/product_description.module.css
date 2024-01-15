@@ -110,3 +110,10 @@
     position: relative;
     border-radius: var(--bd-radius);
 }
+.light {
+    color: var(--clr-grey);
+}
+
+.dark {
+    color: var(--clr-dark);
+}

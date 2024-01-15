@@ -36,7 +36,10 @@ export const VariantB = ({
 
 }) => (
     <div className={styles.B_container}>
-        <img src={itemImage} alt="itemImage" className={styles.product_image} />
+    
+             <img src={itemImage} alt="itemImage" className={styles.product_image} />
+        
+       
         <div className={styles.product_description}>
             <ProductTitle title={title} style={{color: 'var(--clr-dark'}}/>
             <Button label="SEE PRODUCT" variant="secondary" onClick={onClick}/>

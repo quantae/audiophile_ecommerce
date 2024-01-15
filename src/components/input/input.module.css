@@ -1,0 +1,100 @@
+/**
+TEXT INPUT STYLES
+**/
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+  }
+
+  .textInput_div {
+      margin: 0.3rem 0 1.5rem;
+  }
+  
+  .error {
+    color: var(--warn);
+    font-size: 0.8rem;
+  }
+  
+.label {
+    padding-left: 0.25rem;
+    font-size: 1rem;
+    color: var(--clr-dark);
+    font-weight: 600;
+}
+  .text_input {
+    padding: 0.5rem 1rem;
+    width: 100%;
+    border: 1px solid var(--clr-grey2);
+    border-radius: 0.5rem;
+    height: 56px;
+  }
+  .text_input::placeholder {
+    color: var(--clr-grey2);
+    font-weight: 500;
+  }
+  .text_input:focus{
+    outline: 1px solid var(--clr-primary);
+  }
+
+
+  /**
+RADIO INPUT STYLES
+**/
+
+  .radio_div {
+    margin: 1.5rem 0 ;
+    display: flex;
+    align-items: center;
+    gap: 2rem;
+      padding: 0.5rem 1rem;
+      width: 100%;
+      border: 1px solid var(--clr-grey2);
+      border-radius: 0.5rem;
+      height: 56px;
+  }
+  .radio_div:active{
+    outline: 1px solid var(--clr-primary);
+  }
+ 
+ 
+  .radio_input:checked {
+    background-color: yellow;
+  }
+  
+
+  /*** CUST RADIO BUTTON ***/
+  .radio_input {
+    padding: 0.5rem 1rem;
+    margin-right: 1rem;
+    display: none;
+  }
+  .radio_label {
+    padding-left: 35px;
+  font-size: 1rem;
+    color: var(--clr-dark);
+    font-weight: 600;
+    position: relative;
+  }
+  
+  .radio_label::before {
+    content: "";
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 20px;
+    height: 20px;
+    border: 2px solid var(--clr-dark);
+    border-radius: 50%;
+  }
+  
+  .radio_input:checked + .radio_label::after {
+    content: "";
+    position: absolute;
+    left: 4px;
+    top: 4px;
+    width: 12px;
+    height: 12px;
+    background-color: var(--clr-primary);
+    border-radius: 50%;
+  }

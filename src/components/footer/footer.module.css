@@ -5,7 +5,7 @@
     align-items: center;
     gap: 3rem;
     padding: 0 2rem 1rem;
-    background: var(--clr-dark);
+    background: var(--clr-accent);
     width: 100%;
 }
 .hr_line {

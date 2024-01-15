@@ -15,7 +15,7 @@ import { useState, useEffect} from "react";
 import styles from "./product_detail_page.module.css";
 import smoothscroll from "smoothscroll-polyfill";
 //costom hook
-import { useCart } from "../../components/hooks/useCart";
+
 
 const ProductDetailPage = () => {
   const [productDetails, setProductDetails] = useState(null);

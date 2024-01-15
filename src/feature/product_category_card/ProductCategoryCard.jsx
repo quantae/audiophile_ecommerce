@@ -6,7 +6,7 @@ import CardImageHeadphone from '../../../resources/assets/no-background/headphon
 
 
 
-const ProductCategoryCard = ({title ="HEADPHONES", cardImage = CardImageHeadphone, onClick}) => {
+const ProductCategoryCard = ({title ="HEADPHONES", cardImage = CardImageHeadphone, onClick, }) => {
  
 
   /**
@@ -27,7 +27,7 @@ const ProductCategoryCard = ({title ="HEADPHONES", cardImage = CardImageHeadphon
         </div>
       <p>{title}</p>
     
-       <Button label="SHOP" variant="borderless" icon={true} onClick={onClick}/> 
+       <Button label="SHOP" variant="borderless" icon={true} onClick={onClick} /> 
    
       
     </div>

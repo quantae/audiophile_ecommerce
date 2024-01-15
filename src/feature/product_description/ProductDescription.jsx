@@ -50,6 +50,7 @@ export const VariantA = ({
   onClick,
   titleColorDefault = true,
   productSlug,
+  descriptionColor = false,
 }) => (
   <div className={styles.container}>
     <div className={styles.text_container}>
@@ -62,7 +63,7 @@ export const VariantA = ({
         title={productTitle}
         titleColorDefault={titleColorDefault}
       />
-      <p className={styles.description}>{productDescription}</p>
+      <p className={`${styles.description} ${descriptionColor ? styles.light : styles.dark}`}>{productDescription}</p>
       {showButton && (
         <Button
           productSlug={productSlug}
@@ -172,8 +173,9 @@ export const VariantC = ({
   itemImage = product_1_image,
   productSlug,
   onClick,
+  descriptionColor = false,
 }) => {
-  const navigate = useNavigate();
+
 
   /**
    * Handles the click event of the "see product" button.
@@ -196,6 +198,7 @@ export const VariantC = ({
           onClick={onClick}
           showButton={showButton}
           productSlug={productSlug}
+          descriptionColor={descriptionColor}
         />
       );
     case "B":
