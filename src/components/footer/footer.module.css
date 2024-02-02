@@ -44,8 +44,13 @@
     width: 100%
 }
 .logo_navlist_footer{
- margin-bottom: 3rem;
+ margin-bottom: 2rem;
  text-align: center;
+ display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: rem;
 }
 .footer_navlist{
     margin-top: 3rem;
@@ -57,11 +62,12 @@
         width: var(--root-container-width);
     }
     .logo_navlist_footer{
-        display: flex;
+        
         justify-content: space-between;
+        flex-direction: row;
         align-items: center;
         width: 100%;
-        margin-bottom: 3rem;
+        margin-bottom: 2rem;
         
     }
     .footer_text {

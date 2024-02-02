@@ -22,6 +22,7 @@ import { getCategoryTitles, getCategoryImages } from "../../utils/reuseableFnc";
 import HeroImages from '../../assets/product_assets/no-background/hero_headphone.png';
 
 
+
 /**
  * Displays the content of the hero area.
  * ProductDescription component with variant A
@@ -96,7 +97,7 @@ const Home = () => {
           variant="A" 
           productTitle={featureProductA.name}
           productDescription={featureProductA.description}
-          itemImage={featureProductA.image.desktop.replace("./assets/product-zx9-speaker/desktop/image-product.jpg", "/src/assets/product_assets/home/mobile/image-speaker-zx9.png")}
+          itemImage={featureProductA.image.desktop.replace("./assets/product-zx9-speaker/desktop/image-product.jpg", "../../../public/product_assets/home/mobile/image-speaker-zx9.png")}
           onClick={() => navigate( `product/${featureProductA.slug}`)} 
           titleColorDefault={true}
           descriptionColor={true}
