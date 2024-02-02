@@ -30,3 +30,11 @@
 .card_image {
   max-width: 20%;
 }
+
+
+@media screen and (min-width: 960px) {
+ .logo_container{
+    top: -1.5rem;
+ }
+
+}

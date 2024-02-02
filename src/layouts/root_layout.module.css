@@ -25,3 +25,17 @@
     align-items: center;
   
 }
+.root_container{
+    width: 100%;
+}
+
+/***************************/
+/***** MEDIA QUERIES ******/
+/**** DESKTOP **********/
+/************************/
+@media screen and (min-width: 960px) {
+    .root_container {
+        width: var(--root-container-width);
+        margin: auto;
+    }
+}

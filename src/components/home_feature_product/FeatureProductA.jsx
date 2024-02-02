@@ -14,19 +14,31 @@ export const VariantA = ({
     itemImage = imageSpeakerZX9, 
     productTitle,
     productDescription,
-    onClick}) => (
+    onClick,
+titleColorDefault,
+descriptionColor,
+}) => (
     <div className={styles.A_container}>
-      {itemImage && (
+        <div className={styles.featureA_image_wrap}>
+              {itemImage && (
         <img src={itemImage} alt="itemImage" className={styles.product_image} style={{width: '60%'}}/>
       )}
-      <ProductDescription 
-        variant="A" // This is the variant of the product description component that has no image.
+        </div>
+    <div className={styles.featureA_des_wrap}>
+  <ProductDescription 
+        variant="B" // This is the variant of the product description component that has no image.
         showNewTag={false} 
         buttonVariant="primaryDark" 
         productTitle={productTitle}
         productDescription={productDescription}
-        onClick={onClick}/>
+        onClick={onClick}
+        itemImage={false}
+        descriptionColor={descriptionColor}
+        titleColorDefault={titleColorDefault}
+        />
     </div>
+    </div>
+    
 );
 
 export const VariantB = ({
@@ -36,10 +48,10 @@ export const VariantB = ({
 
 }) => (
     <div className={styles.B_container}>
-    
-             <img src={itemImage} alt="itemImage" className={styles.product_image} />
-        
-       
+    <div className={styles.product_img_wrap}>
+         <img src={itemImage} alt="itemImage" className={styles.b_product_image} />
+    </div>
+            
         <div className={styles.product_description}>
             <ProductTitle title={title} style={{color: 'var(--clr-dark'}}/>
             <Button label="SEE PRODUCT" variant="secondary" onClick={onClick}/>
@@ -53,7 +65,10 @@ export const VariantC = ({
     title,
     onClick}) => (
     <div className={styles.C_container}>
-        <img src={itemImage} alt="itemImage" className={styles.product_image} />
+        <div>
+            <img src={itemImage} alt="itemImage" className={styles.product_image} />
+        </div>
+        
         <div className={styles.product_description_variant_c}>
             <ProductTitle title={title} style={{color: 'var(--clr-dark'}}/>
             <Button label="SEE PRODUCT" variant="secondary" onClick={onClick}/>
@@ -66,8 +81,9 @@ const FeatureProduct = ({
     title,
     productDescription,
     itemImage,
-    onClick
-    //itemImage,
+    onClick,
+    titleColorDefault,
+    descriptionColor,
     }) => {
         
        
@@ -79,6 +95,8 @@ const FeatureProduct = ({
                 productTitle={productTitle}
                 productDescription={productDescription}
                 itemImage={itemImage}
+                titleColorDefault={titleColorDefault}
+                descriptionColor={descriptionColor}
                 />
             case "B":
                 return <VariantB  

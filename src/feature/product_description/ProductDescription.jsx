@@ -4,8 +4,7 @@ import Button from "../../components/button/Button";
 //import imageSpeakerMobile from "../../../resources/assets/home/mobile/image-speaker-zx9.png";
 //import bgImage from '../../../resources/assets/home/mobile/image-header.jpg'
 import product_1_image from "../../../resources/assets/product-xx99-mark-two-headphones/mobile/image-product.jpg";
-import { useNavigate } from "react-router-dom";
-import { useEffect, useState } from "react";
+
 
 export const ProductTitle = ({ title, titleColorDefault }) => (
   <>
@@ -40,6 +39,7 @@ export const NewTag = ({
 
 // This variant of the product description component has no image.
 export const VariantA = ({
+  itemImage,
   showNewTag,
   productTitle,
   productDescription,
@@ -53,7 +53,7 @@ export const VariantA = ({
   descriptionColor = false,
 }) => (
   <div className={styles.container}>
-    <div className={styles.text_container}>
+    <div className={styles.a_text_container}>
       <NewTag
         newTagText={newTagText}
         showNewTag={showNewTag}
@@ -63,7 +63,13 @@ export const VariantA = ({
         title={productTitle}
         titleColorDefault={titleColorDefault}
       />
-      <p className={`${styles.description} ${descriptionColor ? styles.light : styles.dark}`}>{productDescription}</p>
+      <p
+        className={`${styles.description} ${
+          descriptionColor ? styles.light : styles.dark
+        }`}
+      >
+        {productDescription}
+      </p>
       {showButton && (
         <Button
           productSlug={productSlug}
@@ -73,6 +79,15 @@ export const VariantA = ({
         />
       )}
     </div>
+    {itemImage && (
+      <div className={styles.item_image_wrap}>
+        <img
+          src={itemImage}
+          alt="itemImagess"
+          className={styles.product_image}
+        />
+      </div>
+    )}
   </div>
 );
 
@@ -89,23 +104,26 @@ export const VariantB = ({
   onClick,
   productSlug,
   titleColorDefault,
+  descriptionColor,
 }) => (
   <div className={styles.container}>
-    <div className={styles.product_image_container}>
-      <img src={itemImage} alt="itemImage" className={styles.product_image} />
-    </div>
+    {itemImage && (
+      <div className={styles.product_image_container}>
+        <img src={itemImage} alt="itemImage" className={styles.product_image} />
+      </div>
+    )}
 
     <div className={styles.text_container}>
       <NewTag
         newTagVariant={newTagVariant}
         showNewTag={showNewTag}
-      newTagText={newTagText}
+        newTagText={newTagText}
       />
       <ProductTitle
         title={productTitle}
         titleColorDefault={titleColorDefault}
       />
-      <p className={styles.description}>{productDescription}</p>
+      <p className={descriptionColor ? styles.description: styles.description_sec}>{productDescription}</p>
       {showButton && (
         <Button
           productSlug={productSlug}
@@ -161,7 +179,7 @@ export const VariantC = ({
   </div>
 );
 
- export const  ProductDescription = ({
+export const ProductDescription = ({
   newTagText = "NEW PRODUCT",
   productTitle = "XX99 MARK II HEADPHONES",
   productDescription = "Experience natural, lifelike audio and exceptional build quality made for the passionate music enthusiast.",
@@ -174,9 +192,8 @@ export const VariantC = ({
   productSlug,
   onClick,
   descriptionColor = false,
+  titleColorDefault,
 }) => {
-
-
   /**
    * Handles the click event of the "see product" button.
    * on the product description component.
@@ -199,6 +216,8 @@ export const VariantC = ({
           showButton={showButton}
           productSlug={productSlug}
           descriptionColor={descriptionColor}
+          itemImage={itemImage}
+          titleColorDefault={titleColorDefault}
         />
       );
     case "B":
@@ -214,6 +233,8 @@ export const VariantC = ({
           onClick={onClick}
           showButton={showButton}
           productSlug={productSlug}
+          descriptionColor={descriptionColor}
+          titleColorDefault={titleColorDefault}
         />
       );
     case "C":

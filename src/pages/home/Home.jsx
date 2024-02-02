@@ -14,10 +14,12 @@ import BringingYou from "../../components/bringing_you_the_best/BringingYou";
 import { ProductDescription } from "../../feature/product_description/ProductDescription";
 
 
+
+
 // variable imports
 import data from "../../assets/data/data.json";
 import { getCategoryTitles, getCategoryImages } from "../../utils/reuseableFnc";
-
+import HeroImages from '../../assets/product_assets/no-background/hero_headphone.png';
 
 
 /**
@@ -35,7 +37,9 @@ useEffect(() => {
   const navigate = useNavigate();
   const heroProductToShow = data.find((item) => item.slug === "xx99-mark-two-headphones");
   return (
-    <div className={styles.hero}>
+    <div className={styles.hero_container}>
+       <div className={styles.hero}>
+    {/* <img src={HeroImages} alt="hero"/> */}
       <ProductDescription 
       variant="A" 
       showNewTag={heroProductToShow.new}
@@ -45,8 +49,13 @@ useEffect(() => {
       buttonVariant="primary"
       descriptionColor={true}
       onClick={() => navigate (`/product/${heroProductToShow.slug}`)}
+      itemImage={HeroImages}
+      // itemImage={heroProductToShow.image.mobile.replace("./assets/product-xx99-mark-two-headphones/mobile/image-product.jpg", "../assets/product_assets/home/mobile/image-header.jpg")}
       />
+      
     </div>
+    </div>
+   
   );
 };
 
@@ -64,7 +73,10 @@ const Home = () => {
   return (
     <div>
       <RootLayout>
-        <HeroArea />
+        <div className={styles.home_wrapper}>
+          <HeroArea />
+        </div>
+        
 
         {/* Product categories component */}
         <div className={styles.product_categories_container}>
@@ -85,15 +97,21 @@ const Home = () => {
           productTitle={featureProductA.name}
           productDescription={featureProductA.description}
           itemImage={featureProductA.image.desktop.replace("./assets/product-zx9-speaker/desktop/image-product.jpg", "/src/assets/product_assets/home/mobile/image-speaker-zx9.png")}
-          onClick={() => navigate( `product/${featureProductA.slug}`)} />
+          onClick={() => navigate( `product/${featureProductA.slug}`)} 
+          titleColorDefault={true}
+          descriptionColor={true}
+          />
           {/* ../../../resources/assets/home/mobile/image-speaker-zx7.jpg*/}
           
-          <FeatureProduct 
+          <div className={styles.featureB_wrap}>
+             <FeatureProduct 
           variant="B" 
           title={featureProductB.name}
           onClick={() => (navigate(`product/${featureProductB.slug}`))}
-          
+        
           />
+          </div>
+         
           <FeatureProduct 
           variant="C" 
           title={featureProductC.name}

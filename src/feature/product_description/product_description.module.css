@@ -2,12 +2,38 @@
 *** PRODUCT DESCRIPTION STYLES***
 *********************************/
 .hero {
-    background: url('../../../resources/assets//home/mobile/image-header.jpg');
+    /* background: url('../../../resources/assets//home/mobile/image-header.jpg');
     background-size: cover;
     background-position: center;
     background-repeat: no-repeat;
     height: 90vh;
-    position: relative;
+    position: relative; */
+    
+}
+/**Animation */
+@keyframes fadein {
+    from { opacity: 0; }
+    to   { opacity: 1; }
+}
+@keyframes slideFromRight {
+    0% {
+        transform: translateX(100%);
+        opacity: 0;
+    }
+    100% {
+        transform: translateX(0);
+        opacity: 1;
+    }
+}
+@keyframes slideFromLeft {
+    0% {
+        transform: translateX(-100%);
+        opacity: 0;
+    }
+    100% {
+        transform: translateX(0);
+        opacity: 1;
+    }
 }
 .container {
     position: relative;
@@ -16,6 +42,10 @@
     justify-content: center;
     align-items: center;
     width: 100%;
+    animation-name: fadein;
+    animation-duration: 0.5s;
+   
+
 }
 .text_container {
     display: flex;
@@ -58,6 +88,10 @@
     line-height: 1.1;
 }
 .description{    
+    color: var(--clr-grey);
+    margin-bottom: 2rem;
+}
+styles.description_sec{    
     color: var(--clr-dark);
     margin-bottom: 2rem;
 }
@@ -84,6 +118,26 @@
     margin: auto;
     position: relative;
     border-radius: var(--bd-radius);
+}
+/********************************
+*** PRODUCT DESCRIPTION STYLES
+*** VARIANT A               ***
+*********************************/
+.item_image_wrap {
+    animation-name: slideFromRight;
+    animation-duration: 1s;
+}
+.a_text_container {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 1.5rem;
+    padding: 2rem 1rem;
+    z-index: 2;
+    position: absolute;
+    animation-name: slideFromLeft;
+    animation-duration: 1s;
 }
 
 /********************************
@@ -116,4 +170,32 @@
 
 .dark {
     color: var(--clr-dark);
+}
+
+
+/********************************
+*** MEDIA QUERIES **************
+*********************************/
+/*** DESKTOP ***/
+@media screen and (min-width: 960px) {
+    .a_text_container {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: flex-start;
+        gap: 1.5rem;
+        padding: 2rem 1rem;
+        z-index: 2;
+        position: relative;
+       width: 60%;
+    }
+    .container {
+        flex-direction: row;
+        justify-content: space-between;
+        gap: 5rem;
+    }
+    .description{
+        text-align: left;
+    }
+
 }

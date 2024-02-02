@@ -49,6 +49,7 @@
   --border-shadow: 0 0.2rem 0.5rem rgba(0, 0, 0, 0.2); /* 0 3px 6px rgba(0, 0, 0, 0.16) */
   --border-shadow2: 0 0.2rem 0.5rem rgba(0, 0, 0, 0.2); /* 0 3px 6px rgba(0, 0, 0, 0.16) */
   --border-shadow3: 0 0.2rem 0.5rem rgba(0, 0, 0, 0.2); /* 0 3px 6px rgba(0, 0, 0, 0.16) */
+  --root-container-width: 70%;
 }
 
 .h1 {
