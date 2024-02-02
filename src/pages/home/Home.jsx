@@ -97,7 +97,7 @@ const Home = () => {
           variant="A" 
           productTitle={featureProductA.name}
           productDescription={featureProductA.description}
-          itemImage={featureProductA.image.desktop.replace("./assets/product-zx9-speaker/desktop/image-product.jpg", "../../../public/product_assets/home/mobile/image-speaker-zx9.png")}
+          itemImage={featureProductA.image.desktop.replace("./assets/product-zx9-speaker/desktop/image-product.jpg", "/product_assets/home/mobile/image-speaker-zx9.png")}
           onClick={() => navigate( `product/${featureProductA.slug}`)} 
           titleColorDefault={true}
           descriptionColor={true}
