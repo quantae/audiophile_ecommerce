@@ -15,15 +15,22 @@ import { selectCartTotal } from "../../feature/navigation_bar/cart/cartSlice";
 import { selectCartItems } from "../../feature/navigation_bar/cart/cartSlice";
 import { removeAllFromCart } from "../../feature/navigation_bar/cart/cartSlice";
 
-export const CartListItem = ({ item, showCountControl, }) => {
+export const CartListItem = ({ item, showCountControl, clickable = true }) => {
   const { name, price, quantity, image, slug } = item;
   const imgUrl =
-    image && image.mobile.replace("./assets", "/src/assets/product_assets/");
+    image && image.mobile.replace("./assets", "/product_assets/");
   return (
     <div className={styles.cartlist_container}>
       <img src={imgUrl} alt="item" className={styles.cart_item_img} />
       <div>
-       <Link className="Link" to={`/product/${slug}`}><h5>{name}</h5></Link> 
+        {clickable ? (
+          <Link className="Link" to={`/product/${slug}`}>
+            <h5>{name}</h5>
+          </Link>
+        ) : (
+          <h5>{name}</h5>
+        )}
+      
         <p className={styles.list_price}>$ {price}</p>
       </div>
       <ProductCartCountControl showButton={false} cartPageQuantity={quantity} showCountControl={showCountControl} />
@@ -70,7 +77,7 @@ const CartPageVariantB = ({onClick}) => {
   const total = useSelector(selectCartTotal);
   const cartItems = useSelector(selectCartItems);
 
-  const navigate = useNavigate();
+  // const navigate = useNavigate();
   return (
     <div className={styles.container}>
       <section>

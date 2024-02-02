@@ -50,11 +50,12 @@ const Thankyou = () => {
           item={cartItems[0]}
           key={cartItems[0].id}
           showCountControl={false}
+          clickable={false}
         />
         {!showAll && cartItems.length > 1 && (
           <>
         <hr/>
-            <p className={styles.and_other_items} onClick={() => setShowAll(true)}>and {cartCount - 1} other item(s)</p>
+            <p className={styles.and_other_items} onClick={() => setShowAll(true)}>and {cartCount - 1} other <span className={styles.other_items}>item(s)</span></p>
            
           </>
         )}

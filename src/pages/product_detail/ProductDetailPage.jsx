@@ -93,8 +93,8 @@ const ProductDetailPage = () => {
   const updatedGallery = Object.entries(productDetails.gallery).reduce(
     (acc, [key, value]) => {
       acc[key] = {
-        mobile: value.mobile.replace("./assets", "/src/assets/product_assets/"),
-        tablet: value.tablet.replace("./assets", "/src/assets/product_assets/"),
+        mobile: value.mobile.replace("./assets", "/product_assets/"),
+        tablet: value.tablet.replace("./assets", "/product_assets/"),
         desktop: value.desktop.replace(
           "./assets",
           "/src/assets/product_assets/"
@@ -119,7 +119,7 @@ const ProductDetailPage = () => {
             slug={productDetails.slug}
             itemImage={productDetails.categoryImage.mobile.replace(
               "./assets",
-              "/src/assets/product_assets/"
+              "/product_assets/"
             )}
           />
           <ProductDetailedFeatures
@@ -135,7 +135,7 @@ const ProductDetailPage = () => {
           {productDetails.others.map((product) => {
             const updatedImage = product.image.mobile.replace(
               "./assets",
-              "/src/assets/product_assets/"
+              "/product_assets/"
             );
             return (
               <>
