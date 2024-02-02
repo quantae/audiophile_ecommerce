@@ -59,7 +59,7 @@ const ProductCategoryPage = () => {
               productDescription={product.description}
               itemImage={product.categoryImage.mobile.replace(
                 "./assets",
-                "/src/assets/product_assets/"
+                "/product_assets/"
               )}
               showNewTag={product.new}
               titleColorDefault={false} 
