@@ -8,7 +8,7 @@ import Footer from "../components/footer/Footer";
 import Navbar from "../feature/navigation_bar/navbar/Navbar";
 import CartPage from "../pages/cart/CartPage";
 import styles from "./root_layout.module.css";
-import ClickOutSide from "../components/clickOutSide/ClickOutside";
+import ClickOutSide from "../components/clickOutSide/ClickOutSide";
 
 // state/variable imports
 
