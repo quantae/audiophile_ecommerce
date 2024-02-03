@@ -1,44 +1,92 @@
 .container {
-    padding: 1rem;
-    background-color: var(--clr-light);
-    padding-bottom: 4rem;
+  padding: 1rem;
+  background-color: var(--clr-light);
+  padding-bottom: 4rem;
+
+  justify-content: center;
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 1rem;
+  width: 100%;
+}
+/* .checkout_cart_container {
+
+} */
+.checkout_cart_component {
+  position: inherit;
+  width: 100%;
 }
 
 .form_container {
-   margin-bottom: 2rem;
-    padding: 1.5rem;
-    background-color: var(--clr-white);
-    border-radius: 1rem;
-    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  margin-bottom: 2rem;
+  padding: 1.5rem;
+  background-color: var(--clr-white);
+  border-radius: 1rem;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
 }
 .form_container h2 {
-    margin-bottom: 1rem;
+  margin-bottom: 1rem;
 }
 .go_back_button {
-    color: var(--clr-grey2);
+  color: var(--clr-grey2);
 }
 .billing_details {
-    color: var(--clr-secondary);
-    margin-top: 2rem;
-    
+  color: var(--clr-secondary);
+  margin-top: 2rem;
 }
 
 .modal_outer {
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    z-index: 10;
-    background-color: rgba(0, 0, 0, 0.5); 
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    padding: 1rem;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 10;
+  background-color: rgba(0, 0, 0, 0.5);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 1rem;
 }
 
 .empty_cart_warning {
-    color: var(--clr-warning);
-    font-size: 0.8rem;
-    font-weight: 600;
+  color: var(--clr-warning);
+  font-size: 0.8rem;
+  font-weight: 600;
+}
+
+@media screen and (min-width: 960px) {
+  .container {
+    display: grid;
+    grid-template-columns: 2fr 1fr;
+    gap: 2rem;
+    width: var(--root-container-width);
+    margin: auto;
+    justify-content: center;
+   
+  }
+  .checkout_cart_container {
+  margin-top: 3rem;
+  }
+  .checkout_cart_component {
+    position: sticky;
+    width: 100%;
+    top: 6rem;
+  }
+  .Form {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: flex-start;
+    align-items: center;
+    column-gap: 2rem;
+    row-gap: 0;
+  }
+  .billing_details{
+    width: 100%;
+  }
+  .empty_cart_warning {
+   position: sticky;
+    top: 25rem;
+  }
 }

@@ -83,3 +83,21 @@ p {
 .other_items {
     text-decoration: underline;
 }
+
+
+@media screen and (min-width: 760px) {
+    .container {
+      width: 50%;
+    }
+    
+  }
+  @media screen and (min-width: 1024px) {
+    .container {
+      width: 40%;
+    }
+  }
+  @media screen and (min-width: 1116px) {
+    .container {
+      width: 30%;
+    }
+  }

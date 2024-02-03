@@ -30,7 +30,8 @@ const CheckoutPage = ({ children }) => {
   return (
     <RootLayout>
       <div className={styles.container}>
-        <Button
+        <div>
+            <Button
           label="Go back"
           variant="borderless"
           className={styles.go_back_button}
@@ -44,7 +45,7 @@ const CheckoutPage = ({ children }) => {
               console.log(values);
             }}
           >
-            <Form>
+            <Form className={styles.Form}>
               <TextInput
                 label="Name"
                 name="name"
@@ -64,6 +65,7 @@ const CheckoutPage = ({ children }) => {
                 type="phone"
                 placeholder="+1202-55-0136"
               />
+              <br/>
               <h4 className={styles.billing_details}>SHIPPING INFO</h4>
               <TextInput
                 label="Your Address"
@@ -129,11 +131,13 @@ const CheckoutPage = ({ children }) => {
             </Form>
           </Formik>
         </div>
+        </div>
+      
 
-        <div>
-          
+        <div className={styles.checkout_cart_container}>
           <CartPage
             variant="B"
+            className={styles.checkout_cart_component}
             onClick={() => {
               if (cartItems.length < 1) {
                 setIsCartEmpty(true);

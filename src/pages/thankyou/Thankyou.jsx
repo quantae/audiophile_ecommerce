@@ -65,6 +65,7 @@ const Thankyou = () => {
               item={item}
               key={item.id}
               showCountControl={false}
+              clickable={false}
             />
           ))}
       </>

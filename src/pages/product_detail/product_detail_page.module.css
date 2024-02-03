@@ -7,3 +7,21 @@
     margin: 1rem 0 2rem;
    padding: 1rem;
 }
+
+@media screen and (min-width: 960px) {
+    .container {
+      width: var(--root-container-width);
+      margin: auto;
+    }
+    .category_wrap{
+        display: flex;
+        flex-direction: row;
+        gap: 2rem;
+    }
+    .also_like_wrap {
+display: flex;
+align-items: center;
+
+    }
+  }
+  

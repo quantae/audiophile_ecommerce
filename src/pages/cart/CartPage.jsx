@@ -38,14 +38,14 @@ export const CartListItem = ({ item, showCountControl, clickable = true }) => {
   );
 };
 
-const CartPageVariantA = ({onClick}) => {
+const CartPageVariantA = ({onClick, className}) => {
   const cartCount = useSelector(selectCartCount);
   const total = useSelector(selectCartTotal);
   const cartItems = useSelector(selectCartItems);
   const dispatch = useDispatch();
   const navigate = useNavigate();
   return (
-    <div className={styles.container}>
+    <div className={`${styles.container} ${className} `}>
       <section>
         <h4>Cart ({cartCount})</h4>
         <button
@@ -72,14 +72,14 @@ const CartPageVariantA = ({onClick}) => {
   );
 };
 
-const CartPageVariantB = ({onClick}) => {
+const CartPageVariantB = ({onClick, className}) => {
   const cartCount = useSelector(selectCartCount);
   const total = useSelector(selectCartTotal);
   const cartItems = useSelector(selectCartItems);
 
   // const navigate = useNavigate();
   return (
-    <div className={styles.container}>
+    <div className={`${styles.container} ${className}`}>
       <section>
         <h4>SUMMARY ({cartCount} ITEMS)</h4>
         {/* <button
@@ -121,13 +121,13 @@ const CartPageVariantB = ({onClick}) => {
 
 
 
-const CartPage = ({variant, onClick}) => {
+const CartPage = ({variant, onClick, className}) => {
 
   switch (variant) {
     case "A":
-      return <CartPageVariantA onClick={onClick}/>;
+      return <CartPageVariantA onClick={onClick} className={className}/>;
     case "B":
-      return <CartPageVariantB onClick={onClick} />;
+      return <CartPageVariantB onClick={onClick} className={className}/>;
     default:
       return null;
   }

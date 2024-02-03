@@ -1,76 +1,87 @@
 .container {
-    display: flex;
-    flex-direction: column;
-    gap: 3rem;
-
+  display: flex;
+  flex-direction: column;
+  gap: 3rem;
 }
 .pricetag {
-    margin: 0 0 1rem;
+  margin: 0 0 1rem;
 }
 .cart_counter {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    width: 8rem;
-    height: 100%;
-    border: none;
-    border-radius: 0;
-    color: var(--clr-dark);
-    cursor: pointer;
-    transition: all 0.3s ease;
-    background-color: var(--clr-light);
-   padding: 0.1011rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 8rem;
+  height: 100%;
+  border: none;
+  border-radius: 0;
+  color: var(--clr-dark);
+  cursor: pointer;
+  transition: all 0.3s ease;
+  background-color: var(--clr-light);
+  padding: 0.1011rem;
 }
 
-.button_minus, .button_plus {
-    color: var(--clr-grey);
-    
+.button_minus,
+.button_plus {
+  color: var(--clr-grey);
 }
 .button_minus {
-   padding-left: 0.1rem;
+  padding-left: 0.1rem;
 }
 
 .button_plus {
-    padding-right: 0.1rem;
+  padding-right: 0.1rem;
 }
-.button_minus:hover, .button_plus:hover {
-    color: var(--clr-primary);
+.button_minus:hover,
+.button_plus:hover {
+  color: var(--clr-primary);
 }
 .cartCount_and_button_wrap {
-    display: flex;
-    align-items: center;
-    flex-wrap: wrap;
-    /* justify-content: center; */
-    gap: 1rem;
-    margin-bottom: 3rem;
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  /* justify-content: center; */
+  gap: 1rem;
+  margin-bottom: 3rem;
 }
 .feature_text_container h5 {
-    margin-bottom: 2rem;
+  margin-bottom: 2rem;
 }
 .feature_text_p {
-    color: var(--clr-dark);
-    margin-bottom: 2rem;
-    text-align: left;
-    line-height: 1.8;
+  color: var(--clr-dark);
+  margin-bottom: 2rem;
+  text-align: left;
+  line-height: 1.8;
 }
-.in_the_box_container  h5{
-    margin-bottom: 1rem;
+.in_the_box_container h5 {
+  margin-bottom: 1rem;
 }
-.box_list_item  {
-    display: flex;
-    flex-direction: row;
-    align-items: center; 
-    gap: 0.9rem;
-    margin-bottom: 0.5rem;
+.box_list_item {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  gap: 0.9rem;
+  margin-bottom: 0.5rem;
 }
 .box_list_item p:first-child {
-    color: var(--clr-primary);
+  color: var(--clr-primary);
 }
 
 .gallary_container {
   display: grid;
   grid-template-columns: 1fr;
-    gap: 2rem;
-    margin-bottom: 2rem;
+  gap: 2rem;
+  margin-bottom: 2rem;
+}
 
+@media screen and (min-width: 960px) {
+  .gallary_container {
+    display: flex;
+justify-content: center;
+    flex-wrap: wrap;
+ 
+  }
+  .gallaryImage {
+    width: 30rem;
+  }
 }

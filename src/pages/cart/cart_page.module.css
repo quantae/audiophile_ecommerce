@@ -1,63 +1,79 @@
 .container {
-    background-color: var(--clr-white);
-    padding: 1rem;
-    border-radius: 0.5rem;
-    width: 100%;
-    box-shadow: 0 0 1rem rgba(0, 0, 0, 0.1);
+  background-color: var(--clr-white);
+  padding: 1rem;
+  border-radius: 0.5rem;
+  width: 100%;
+  box-shadow: 0 0 2rem rgba(0, 0, 0, 0.1);
 }
 
 section {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    flex-direction: row;
-    gap: 1rem;
-    margin-bottom: 1rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-direction: row;
+  gap: 1rem;
+  margin-bottom: 1rem;
 }
 .cart_item_img {
-    width: 3.5rem;
-    height: 3.5rem;
-    object-fit: cover;
-    border-radius: 0.5rem;
-
+  width: 3.5rem;
+  height: 3.5rem;
+  object-fit: cover;
+  border-radius: 0.5rem;
 }
 .total {
-    font-weight: 400;
-    color: var(--clr-grey2);
+  font-weight: 400;
+  color: var(--clr-grey2);
 }
 .grand_total {
-    font-weight: 700;
-    color: var(--clr-primary);
+  font-weight: 700;
+  color: var(--clr-primary);
 }
 
 .checkout_button {
-    width: 100% !important;
-} 
+  width: 100% !important;
+}
 .remove_all_button {
-    border: none;
-    outline: none;
-    background-color: transparent;
-    color: var(--clr-grey2);
-    font-size: 0.8rem;
-    font-weight: 400;
-    cursor: pointer;
-    text-decoration: underline;
-    &:hover {
-        color: var(--clr-secondary);
-    }
+  border: none;
+  outline: none;
+  background-color: transparent;
+  color: var(--clr-grey2);
+  font-size: 0.8rem;
+  font-weight: 400;
+  cursor: pointer;
+  text-decoration: underline;
+  &:hover {
+    color: var(--clr-secondary);
+  }
 }
 
 /*****CART LIST ITEM****/
 .cartlist_container {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    gap: 1rem;
-    margin-bottom: 1rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 1rem;
+  margin-bottom: 1rem;
 }
 .list_price {
-    color: var(--clr-grey2);
-    font-size: 0.8rem;
-    font-weight: 600;
+  color: var(--clr-grey2);
+  font-size: 0.8rem;
+  font-weight: 600;
 }
 
+@media screen and (min-width: 660px) {
+  .container {
+    position: absolute;
+    top: 1rem;
+    left: 53%;
+    width: 45%;
+  }
+}
+
+@media screen and (min-width: 1024px) {
+    .container {
+      position: absolute;
+      top: 1rem;
+      left: 55%;
+      width: 30%;
+    }
+  }

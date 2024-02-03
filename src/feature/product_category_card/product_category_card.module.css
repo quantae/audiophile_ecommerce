@@ -14,7 +14,6 @@
   border-radius: 8px;
   width: 100%;
   margin-bottom: 2rem;
-
 }
 
 .logo_container {
@@ -23,18 +22,25 @@
   display: flex;
   justify-content: center;
   width: 100%;
-  @media (min-width: 667px) {
-    top: -1.5rem;
-  }
 }
 .card_image {
   max-width: 20%;
 }
 
+@media screen and (min-width: 460px) {
+  .logo_container{
+     top: -4.5rem;
+     width: 25rem;
+  }
+ 
+ }
 
 @media screen and (min-width: 960px) {
  .logo_container{
-    top: -1.5rem;
+    top: -3.5rem;
+    width: 25rem;
  }
-
+ .container {
+  width: 20rem;
+}
 }

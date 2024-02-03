@@ -69,6 +69,7 @@ export const Gallery = ({ productGallary }) => {
           style={{ borderRadius: "8px" }}
           alt="product gallery"
           key={index}
+          className={styles.gallaryImage}
         />
       ))}
     </div>

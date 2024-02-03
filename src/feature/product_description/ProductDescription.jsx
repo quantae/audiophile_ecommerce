@@ -108,12 +108,12 @@ export const VariantB = ({
 }) => (
   <div className={styles.container}>
     {itemImage && (
-      <div className={styles.product_image_container}>
+      <div className={styles.b_product_image_container}>
         <img src={itemImage} alt="itemImage" className={styles.product_image} />
       </div>
     )}
 
-    <div className={styles.text_container}>
+    <div className={styles.b_text_container}>
       <NewTag
         newTagVariant={newTagVariant}
         showNewTag={showNewTag}
@@ -151,8 +151,8 @@ export const VariantC = ({
   titleColorDefault,
   productSlug,
 }) => (
-  <div className={styles.container}>
-    <div className={styles.product_image_container_vc}>
+  <div className={styles.c_container}>
+    <div className={styles.c_product_image_container}>
       <img
         src={itemImage}
         alt="itemImage"
@@ -160,14 +160,15 @@ export const VariantC = ({
       />
     </div>
 
-    <div className={styles.text_container}>
+    <div className={styles.c_text_container}>
       {/* <NewTag newTagText={newTagText} showNewTag={showNewTag} newTagDefault={newTagDefault}/> */}
       <ProductTitle
         title={productTitle}
         titleColorDefault={titleColorDefault}
       />
       {/* <p className={styles.description}>{productDescription}</p> */}
-      {showButton && (
+      <div className={styles.c_button_wrap}>
+          {showButton && (
         <Button
           productSlug={productSlug}
           label="SEE PRODUCT"
@@ -175,6 +176,8 @@ export const VariantC = ({
           onClick={onClick}
         />
       )}
+      </div>
+    
     </div>
   </div>
 );

@@ -33,9 +33,9 @@ const ProductCategoryPage = () => {
   }, [categoryTitle]);
 
   const handdleCategoryCardClick = (productSlug) => {
-    navigate(`/product/${productSlug.toLowerCase()}`); 
+    navigate(`/product/${productSlug.toLowerCase()}`);
     console.log("clicked SEE PRODUCT on, ", productSlug);
-  }
+  };
   /**
    * We Filter the data to get the category that matches the url parameter
    */
@@ -62,19 +62,25 @@ const ProductCategoryPage = () => {
                 "/product_assets/"
               )}
               showNewTag={product.new}
-              titleColorDefault={false} 
+              titleColorDefault={false}
               productSlug={product.slug}
               onClick={() => handdleCategoryCardClick(product.slug)}
             />
           ))}
-          {categoryTitle.map((category, index) => (
-            <ProductCategoryCard
-              title={category}
-              key={index}
-              cardImage={categoryImages[category]}
-              onClick={() => navigate(`/categories/${category.toLowerCase()}`)}
-            />
-          ))}
+          <h4>SHOP BY CATEGORY</h4>
+          <div className={styles.product_category_wrap}>
+            
+            {categoryTitle.map((category, index) => (
+              <ProductCategoryCard
+                title={category}
+                key={index}
+                cardImage={categoryImages[category]}
+                onClick={() =>
+                  navigate(`/categories/${category.toLowerCase()}`)
+                }
+              />
+            ))}
+          </div>
 
           <BringingYou />
         </div>

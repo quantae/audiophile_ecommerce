@@ -11,11 +11,10 @@ import {
 import ProductCategoryCard from "../../feature/product_category_card/ProductCategoryCard";
 import BringingYou from "../../components/bringing_you_the_best/BringingYou";
 import { useParams, useNavigate } from "react-router-dom";
-import { useState, useEffect} from "react";
+import { useState, useEffect } from "react";
 import styles from "./product_detail_page.module.css";
 import smoothscroll from "smoothscroll-polyfill";
 //costom hook
-
 
 const ProductDetailPage = () => {
   const [productDetails, setProductDetails] = useState(null);
@@ -24,7 +23,6 @@ const ProductDetailPage = () => {
   const categoryTitle = getCategoryTitles(getProductData());
   const { productSlug } = useParams();
   const navigate = useNavigate();
- 
 
   const decodedProductSlugUrl = decodeURIComponent(productSlug).toLowerCase();
   // console.log("decoded productSlug after: ", decodedProductSlugUrl);
@@ -59,7 +57,6 @@ const ProductDetailPage = () => {
     // console.log("product details useEFfect:", fetchedProductDetails);
     // console.log("decoded productSlug from useEffect: ", decodedProductSlugUrl)
   }, [decodedProductSlugUrl, productDetails, productSlug]);
-
 
   // const { addToCart } = useCart();
 
@@ -132,7 +129,8 @@ const ProductDetailPage = () => {
             item={productDetails}
           />
           <h4 className={styles.category_title}>YOU MAY ALSO LIKE</h4>
-          {productDetails.others.map((product) => {
+          <div className={styles.also_like_wrap}>
+             {productDetails.others.map((product) => {
             const updatedImage = product.image.mobile.replace(
               "./assets",
               "/product_assets/"
@@ -153,15 +151,21 @@ const ProductDetailPage = () => {
               </>
             );
           })}
+          </div>
+         
+          <div className={styles.category_wrap}>
+            {categoryTitle.map((category, index) => (
+              <ProductCategoryCard
+                title={category}
+                key={index}
+                cardImage={categoryImages[category]}
+                onClick={() =>
+                  navigate(`/categories/${category.toLowerCase()}`)
+                }
+              />
+            ))}
+          </div>
 
-          {categoryTitle.map((category, index) => (
-            <ProductCategoryCard
-              title={category}
-              key={index}
-              cardImage={categoryImages[category]}
-              onClick={() => navigate(`/categories/${category.toLowerCase()}`)}
-            />
-          ))}
           <BringingYou />
         </div>
       </RootLayout>
