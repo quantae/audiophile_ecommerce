@@ -152,7 +152,7 @@ const ProductDetailPage = () => {
             );
           })}
           </div>
-         
+          <h4 style={{marginBottom: '3rem'}}>SHOP BY CATEGORIES</h4>
           <div className={styles.category_wrap}>
             {categoryTitle.map((category, index) => (
               <ProductCategoryCard

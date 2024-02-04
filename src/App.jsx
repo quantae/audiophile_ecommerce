@@ -6,9 +6,8 @@ import Home from "./pages/home/Home";
 import "./styles/font_colors_typography.css";
 import "./styles/global.css";
 import ProductCategoryPage from "./pages/product_category/ProductCategoryPage";
-import ProductDetailPage from './pages/product_detail/ProductDetailPage';
+import ProductDetailPage from "./pages/product_detail/ProductDetailPage";
 import CheckoutPage from "./pages/checkout/CheckoutPage";
-
 
 const router = createBrowserRouter([
   {
@@ -16,7 +15,6 @@ const router = createBrowserRouter([
     element: (
       <>
         <Home />
-       
       </>
     ),
   },
@@ -30,10 +28,9 @@ const router = createBrowserRouter([
     element: <ProductDetailPage />,
   },
   {
-    path: '/checkout',
-    element: <CheckoutPage/>
-  }
- 
+    path: "/checkout",
+    element: <CheckoutPage />,
+  },
 ]);
 
 function App() {

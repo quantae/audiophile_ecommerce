@@ -3,6 +3,12 @@
 import styles from "./bringing_you.module.css";
 import displayImage from '../../../resources/assets/shared/mobile/image-best-gear.jpg'
 
+/**
+ * BringingYou component
+ * @param {*} image 
+ * @returns 
+ */
+
 const BringingYou = ({image = displayImage}) => {
   return (
     <div className={`${styles.container} text-center`}>

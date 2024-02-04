@@ -6,6 +6,7 @@
     gap: 1rem;
     padding: 1rem;
     width: 100%;
-    
-    background-color: var(--clr-white);
+    background-color: grey;
+    border-radius: var(--bd-radius);
+    box-shadow: 0px 4px 15px rgba(0, 0, 0, 0.1);
 }

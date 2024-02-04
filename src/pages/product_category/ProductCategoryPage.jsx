@@ -34,14 +34,14 @@ const ProductCategoryPage = () => {
 
   const handdleCategoryCardClick = (productSlug) => {
     navigate(`/product/${productSlug.toLowerCase()}`);
-    console.log("clicked SEE PRODUCT on, ", productSlug);
+   //console.log("clicked SEE PRODUCT on, ", productSlug);
   };
   /**
    * We Filter the data to get the category that matches the url parameter
    */
   const categoryLists = getProductsByCategory(getProductData(), category);
-  console.log("category lists", categoryLists);
-  console.log(typeof categoryLists);
+ // console.log("category lists", categoryLists);
+  //console.log(typeof categoryLists);
 
   return (
     <>
@@ -69,7 +69,7 @@ const ProductCategoryPage = () => {
           ))}
           <h4>SHOP BY CATEGORY</h4>
           <div className={styles.product_category_wrap}>
-            
+         
             {categoryTitle.map((category, index) => (
               <ProductCategoryCard
                 title={category}

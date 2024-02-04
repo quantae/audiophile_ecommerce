@@ -1,8 +1,6 @@
 /* eslint-disable react/prop-types */
 import styles from "./product_description.module.css";
 import Button from "../../components/button/Button";
-//import imageSpeakerMobile from "../../../resources/assets/home/mobile/image-speaker-zx9.png";
-//import bgImage from '../../../resources/assets/home/mobile/image-header.jpg'
 import product_1_image from "../../../resources/assets/product-xx99-mark-two-headphones/mobile/image-product.jpg";
 
 
@@ -197,13 +195,7 @@ export const ProductDescription = ({
   descriptionColor = false,
   titleColorDefault,
 }) => {
-  /**
-   * Handles the click event of the "see product" button.
-   * on the product description component.
-   */
-  // const handleClick = (productSlug) => {
-  //     navigate(`/product/${productSlug}`);
-  // }
+  
 
   switch (variant) {
     case "A":
@@ -258,15 +250,5 @@ export const ProductDescription = ({
     default:
       return null;
   }
-  // return (
-  //   <div className={styles.container}>
-
-  //     <div className={styles.text_container}>
-  //       {showNewTag && <h6 className={styles._new_tag}>{newTagText}</h6>}
-  //       <ProductTitle title={productTitle}/>
-  //       <p className={styles.description}>{productDescription}</p>
-  //       <Button label="SEE PRODUCT" variant={buttonVariant}/>
-  //     </div>
-  //   </div>
-  // );
+  
 };

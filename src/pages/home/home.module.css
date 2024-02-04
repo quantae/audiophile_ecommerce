@@ -29,12 +29,13 @@
     align-items: center;
     gap: 5rem;
     padding: 1rem;
-    margin: 7rem 0 4rem;
-    @media (min-width: 670px) {
+    margin: 5rem 0 4rem;
+    width: 100%;
+    /* @media (min-width: 670px) {
         flex-direction: row;
         justify-content: space-between;
         gap: 2rem;
-    }
+    } */
 }
 
 .product_feature_container {
@@ -62,9 +63,11 @@
         margin: auto;
     }
     .product_categories_container{
+        flex-direction: row;
         width: var(--root-container-width);
         margin: 6rem auto;
-        gap: 10rem;
+        gap: 5rem;
+       
     }
     .product_feature_container {
         display: flex;

@@ -1,16 +1,8 @@
 /* eslint-disable react/prop-types */
 //import React from 'react'
-import { useState } from "react";
-import Button from "../button/Button";
+
 import styles from "./product_detailed_features.module.css";
-import { useCart } from "../hooks/useCart";
-import gallaryImage from "../../assets/product_assets/shared/mobile/image-best-gear.jpg";
-import { ProductDescription } from "../../feature/product_description/ProductDescription";
-import { getCategoryImages, getCategoryTitles } from "../../utils/reuseableFnc";
-import data from "../../assets/data/data.json";
-import ProductCategoryCard from "../../feature/product_category_card/ProductCategoryCard";
-import RootLayout from "../../layouts/RootLayout";
-import { useParams } from "react-router-dom";
+
 import ProductCartCountControl from "../../feature/navigation_bar/cart/ProductCartCountControl";
 
 export const PriceTag = ({ price }) => (
@@ -19,25 +11,7 @@ export const PriceTag = ({ price }) => (
   </div>
 );
 
-export const CartCounter = ({ Pquantity, increment, decrement }) => {
-  return (
-    <div className={styles.cart_counter}>
-      {/* <button
-        className={styles.button_minus}
-        onClick={decrement}
-      >
-        -
-      </button>
-      <p>{Pquantity}</p>
-      <button
-        className={styles.button_plus}
-        onClick={increment}
-      >
-        +
-      </button> */}
-    </div>
-  );
-};
+
 
 export const FeatureText = ({ featureText }) => (
   <div className={styles.feature_text_container}>

@@ -42,7 +42,7 @@ const RootLayout = ({ children }) => {
           console.log("menuOpen: ", menuOpen);
         }}
       />
-      {/* {isCartModalOpen && <div className={styles.modal_outer}><CartPage/></div>} */}
+     
       {isCartModalOpen && (
         <ClickOutSide
           onClick={() => setIsCartModalOpen(false)}
